@@ -11,6 +11,12 @@ export default class Registration extends Component {
       signupForm: "Signup",
     };
   }
+  closeForm = () => {
+    this.setState({
+        loginForm: "Login",
+        signupForm: "Signup",
+      });
+  }
 
   loadForm = () => {
     if (this.state.loginForm === "X") {
@@ -26,10 +32,7 @@ export default class Registration extends Component {
         signupForm: "Signup",
       });
     } else {
-      this.setState({
-        loginForm: "Login",
-        signupForm: "Signup",
-      });
+      this.closeForm()
     }
   };
   showSignup = () => {
@@ -39,10 +42,7 @@ export default class Registration extends Component {
           signupForm: "X",
         });
       } else {
-        this.setState({
-          loginForm: "Login",
-          signupForm: "Signup",
-        });
+        this.closeForm()
       }
   };
   render() {
