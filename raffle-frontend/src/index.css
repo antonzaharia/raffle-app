@@ -17,3 +17,6 @@ code {
 .right-text {
   text-align: right;
 }
+.float-right {
+  float: right;
+}
