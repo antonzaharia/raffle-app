@@ -19,17 +19,19 @@ export default class Registration extends Component {
             return <SignupForm />
         }
     }
-    showLogin = () => {
+    showLogin = (event) => {
         this.setState({
             loginForm: !this.state.loginForm,
             signupForm: false
         })
+        this.state.loginForm ? event.target.textContent = "Login" : event.target.textContent = "X" 
     }
-    showSignup = () => {
+    showSignup = (event) => {
         this.setState({
             loginForm: false,
             signupForm: !this.state.signupForm
         })
+        this.state.signupForm ? event.target.textContent = "Signup" : event.target.textContent = "X" 
     }
     render() {
         return (

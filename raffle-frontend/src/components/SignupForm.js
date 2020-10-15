@@ -15,10 +15,10 @@ export default class signupForm extends Component {
       <div>
         <Card style={{ width: '18rem'}} className="float-right">
           <Form>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="formBasicText">
               <Form.Control type="text" placeholder="Enter your name" />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="formBasicEmail">
               <Form.Control type="email" placeholder="Enter your email" />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
