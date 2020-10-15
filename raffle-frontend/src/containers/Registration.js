@@ -48,8 +48,8 @@ export default class Registration extends Component {
   render() {
     return (
       <div className="right-text">
-        <Button onClick={this.showLogin}>{this.state.loginForm}</Button>
-        <Button onClick={this.showSignup}>{this.state.signupForm}</Button>
+        <Button className="header-btn" onClick={this.showLogin}>{this.state.loginForm}</Button>
+        <Button className="header-btn" onClick={this.showSignup}>{this.state.signupForm}</Button>
         {this.loadForm()}
       </div>
     );
