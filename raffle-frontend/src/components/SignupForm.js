@@ -14,6 +14,7 @@ export default class signupForm extends Component {
     return (
       <div>
         <Card style={{ width: '18rem'}} className="float-right">
+          <h2 className="center-text">Signup</h2>
           <Form>
             <Form.Group controlId="formBasicText">
               <Form.Control type="text" placeholder="Enter your name" />

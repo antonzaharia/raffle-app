@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import SignupForm from "../components/SignupForm";
 import LoginForm from "../components/LoginForm";
+
+// Bootstrap
 import Button from "react-bootstrap/Button";
 
 export default class Registration extends Component {
