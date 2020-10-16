@@ -24,7 +24,7 @@ export default class Registration extends Component {
     if (this.state.loginForm === "X") {
       return <LoginForm />;
     } else if (this.state.signupForm === "X") {
-      return <SignupForm />;
+      return <SignupForm signUp={this.props.signUp}/>;
     }
   };
   showLogin = () => {
