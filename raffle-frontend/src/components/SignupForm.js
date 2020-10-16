@@ -30,7 +30,24 @@ export default class signupForm extends Component {
       email: this.state.email,
       password: this.state.password
     }
-    this.props.signUp(user)
+    fetch("http://localhost:3001/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((resp) => resp.json())
+        .then((result) => {
+          if('errors' in result){
+            for(const error in result.errors){
+              console.log(error, result.errors[error][0])
+            }
+          } else {
+            this.props.signUp(result)
+          }
+        });
+    
     this.setState({
       name: '',
       email: '',
