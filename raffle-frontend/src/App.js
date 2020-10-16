@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { signUp } from './actions/UserActions'
+import { signUp, login } from './actions/UserActions'
 
 import Header from './containers/Header'
 import Footer from './containers/Footer'
@@ -13,7 +13,7 @@ import Container from 'react-bootstrap/Container'
   render() {
     return (
       <div>
-      <Header signUp={this.props.signUp}/>
+      <Header signUp={this.props.signUp} login={this.props.login}/>
       <Container>
         <Router>
           <div>
@@ -28,6 +28,7 @@ import Container from 'react-bootstrap/Container'
   }
 }
 const mapDispatchToProps = dispatch => ({
-  signUp: user => dispatch(signUp(user))
+  signUp: user => dispatch(signUp(user)),
+  login: user=> dispatch(login(user))
 })
 export default connect(null, mapDispatchToProps)(App)

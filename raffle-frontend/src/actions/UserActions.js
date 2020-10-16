@@ -4,3 +4,9 @@ export function signUp(user) {
         payload: user
     })
 }
+export function login(user) {
+    return ({
+        type: "LOGIN",
+        payload: user
+    })
+}
