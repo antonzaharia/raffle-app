@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
             session['user_id'] = user.id
             render json: user
         else
-            render json: {errors: "Login Failed."}
+            render json: {errors: {login: "Failed."}}
         end
     end
 end

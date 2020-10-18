@@ -1,34 +1,34 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { signUp, login } from './actions/UserActions'
+import React, { Component } from "react";
+import { CookiesProvider } from "react-cookie";
+import { withCookies } from 'react-cookie';
 
-import Header from './containers/Header'
-import Footer from './containers/Footer'
-import MainComponent from './containers/MainComponent'
-import AccountContainer from './containers/AccountContainer'
-import Container from 'react-bootstrap/Container'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
- class App extends Component {
+import Header from "./containers/Header";
+import Footer from "./containers/Footer";
+import MainComponent from "./containers/MainComponent";
+import AccountContainer from "./containers/AccountContainer";
+import Container from "react-bootstrap/Container";
+
+class App extends Component {
   render() {
     return (
       <div>
-      <Header signUp={this.props.signUp} login={this.props.login}/>
-      <Container>
-        <Router>
-          <div>
-            <Route exact path='/' component={MainComponent} />
-            <Route path='/account' component={AccountContainer} />
-          </div>
-        </Router>
-      </Container>
-      <Footer />
+        <CookiesProvider>
+          <Router>
+            <Header signUp={this.props.signUp} login={this.props.login} />
+            <Container>
+              <div>
+                <Route exact path="/" render={()=> (<MainComponent cookies={this.props.cookies} />)} />
+                <Route path="/account" component={()=> (<AccountContainer cookies={this.props.cookies} />)} />
+              </div>
+            </Container>
+            <Footer />
+          </Router>
+        </CookiesProvider>
       </div>
-    )
+    );
   }
 }
-const mapDispatchToProps = dispatch => ({
-  signUp: user => dispatch(signUp(user)),
-  login: user=> dispatch(login(user))
-})
-export default connect(null, mapDispatchToProps)(App)
+
+export default withCookies(App);
