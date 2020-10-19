@@ -1,10 +1,12 @@
 import React from "react";
 import Registration from "./Registration";
+import LoggedIN from "../../components/Registration/LoggedIn"
+import LoggedIn from "../../components/Registration/LoggedIn";
 
 export default function Header(props) {
   const loggedIn = () => {
-    if (props.user || localStorage.user_email) {
-      return <p>Lodded in as {localStorage.user_email}</p>;
+    if (props.user || localStorage.email) {
+      return <LoggedIn />
     } else {
        return <Registration />
     }

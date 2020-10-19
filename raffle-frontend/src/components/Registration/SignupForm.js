@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login } from "../actions/UserActions";
-import Error from "./Error"
+import { signUp } from "../../actions/UserActions";
+import Error from "../Error"
 
 // Bootstrap
 import Form from "react-bootstrap/Form";
@@ -13,10 +13,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-class loginForm extends Component {
+class signupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
       password: "",
     };
@@ -28,9 +29,14 @@ class loginForm extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    let user = { email: this.state.email, password: this.state.password };
-    this.props.login(user);
+    let user = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+    };
+    this.props.signUp(user);
     this.setState({
+      name: "",
       email: "",
       password: "",
     });
@@ -40,8 +46,17 @@ class loginForm extends Component {
     return (
       <div>
         <Card style={{ width: "18rem" }} className="float-right">
-          <h2 className="center-text">Login</h2>
+          <h2 className="center-text">Signup</h2>
           <Form onSubmit={this.handleSubmit}>
+            <Form.Group controlId="formBasicText">
+              <Form.Control
+                onChange={this.handleChange}
+                value={this.state.name}
+                name="name"
+                type="text"
+                placeholder="Enter your name"
+              />
+            </Form.Group>
             <Form.Group controlId="formBasicEmail">
               <Form.Control
                 onChange={this.handleChange}
@@ -72,10 +87,11 @@ class loginForm extends Component {
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  login: (user) => dispatch(login(user)),
+  signUp: (user) => dispatch(signUp(user)),
 });
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   requesting: state.requesting,
   errors: state.errors
-});
-export default connect(mapStateToProps, mapDispatchToProps)(loginForm);
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(signupForm);

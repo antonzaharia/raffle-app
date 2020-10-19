@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Header from "./containers/Header";
+import Header from "./containers/Registration/Header";
 import Footer from "./containers/Footer";
 import MainComponent from "./containers/MainComponent";
 import AccountContainer from "./containers/AccountContainer";

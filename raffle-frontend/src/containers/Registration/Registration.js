@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import SignupForm from "../components/SignupForm";
-import LoginForm from "../components/LoginForm";
+import SignupForm from "../../components/Registration/SignupForm";
+import LoginForm from "../../components/Registration/LoginForm";
 
 // Bootstrap
 import Button from "react-bootstrap/Button";

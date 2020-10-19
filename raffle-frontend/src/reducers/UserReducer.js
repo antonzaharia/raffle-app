@@ -19,6 +19,8 @@ export default function UserReducer(state = {user: null, requesting: false, erro
             email: action.payload.email
         }
       return {...state, user, requesting: false, errors: false};
+    case "LOGOUT":
+        return {...state, user: ""}
     default:
       return state;
   }

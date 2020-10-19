@@ -11,6 +11,8 @@ export function signUp(user) {
       if ("errors" in result) {
         dispatch({type: "FAILED", payload: result.errors}) 
       } else {
+        localStorage.setItem("name", result.name)
+        localStorage.setItem("email", result.email)
         dispatch({
             type: "SIGNUP",
             payload: result
@@ -31,8 +33,8 @@ export function login(user) {
         if ("errors" in result) {
           dispatch({type: "FAILED", payload: result.errors}) 
         } else {
-          localStorage.setItem("user_email", result.email)
-          console.log(localStorage)
+          localStorage.setItem("name", result.name)
+          localStorage.setItem("email", result.email)
           dispatch({
             type: "LOGIN",
             payload: result,
@@ -40,4 +42,9 @@ export function login(user) {
         }
       });
   };
+}
+export function logout(){
+  localStorage.removeItem("name", localStorage.name)
+  localStorage.removeItem("email", localStorage.name)
+  return { type: "LOGOUT"};
 }
