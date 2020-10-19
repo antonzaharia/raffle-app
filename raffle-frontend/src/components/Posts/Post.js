@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { Link } from 'react-router-dom';
 
 export default function Post({ post }) {
   return (
@@ -12,8 +13,10 @@ export default function Post({ post }) {
       <Card.Body>
         <Card.Title>{post.title}</Card.Title>
         <Card.Text>{post.description}</Card.Text>
-        <Button variant="success" block>ENTER NOW</Button>
+        <Link key={post.id} to={`/posts/${post.id}`}><Button variant="success" block>ENTER NOW</Button></Link>
       </Card.Body>
+      
     </Card>
+    
   );
 }
