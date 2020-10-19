@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { CookiesProvider } from "react-cookie";
-import { withCookies } from 'react-cookie';
+import { connect } from "react-redux";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -14,21 +13,22 @@ class App extends Component {
   render() {
     return (
       <div>
-        <CookiesProvider>
           <Router>
-            <Header signUp={this.props.signUp} login={this.props.login} />
+            <Header user={this.props.user}/>
             <Container>
               <div>
-                <Route exact path="/" render={()=> (<MainComponent cookies={this.props.cookies} />)} />
-                <Route path="/account" component={()=> (<AccountContainer cookies={this.props.cookies} />)} />
+                <Route exact path="/" render={() => (<MainComponent />)} />
+                <Route path="/account" render={()=> (<AccountContainer />)} />
               </div>
             </Container>
             <Footer />
           </Router>
-        </CookiesProvider>
       </div>
     );
   }
 }
+const mapStateToProps = state => ({
+  user: state.user
+})
 
-export default withCookies(App);
+export default connect(mapStateToProps)(App);

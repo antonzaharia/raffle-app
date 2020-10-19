@@ -74,7 +74,7 @@ class loginForm extends Component {
 const mapDispatchToProps = (dispatch) => ({
   login: (user) => dispatch(login(user)),
 });
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   requesting: state.requesting,
   errors: state.errors
 });

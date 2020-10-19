@@ -29,8 +29,10 @@ export function login(user) {
       .then((resp) => resp.json())
       .then((result) => {
         if ("errors" in result) {
-            dispatch({type: "FAILED", payload: result.errors}) 
+          dispatch({type: "FAILED", payload: result.errors}) 
         } else {
+          localStorage.setItem("user_email", result.email)
+          console.log(localStorage)
           dispatch({
             type: "LOGIN",
             payload: result,

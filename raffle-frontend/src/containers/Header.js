@@ -1,11 +1,21 @@
-import React from 'react'
-import Registration from './Registration'
+import React from "react";
+import Registration from "./Registration";
 
 export default function Header(props) {
-    return (
-        <div className="header">
-            <a href="/" className="logo">Raffle</a>
-            <Registration />
-        </div>
-    )
+  const loggedIn = () => {
+    if (props.user || localStorage.user_email) {
+      return <p>Lodded in as {localStorage.user_email}</p>;
+    } else {
+       return <Registration />
+    }
+  };
+  return (
+    <div className="header">
+      <a href="/" className="logo">
+        Raffle
+      </a>
+      {loggedIn()}
+      
+    </div>
+  );
 }
