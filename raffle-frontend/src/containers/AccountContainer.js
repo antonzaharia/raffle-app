@@ -5,7 +5,11 @@ export default class AccountContainer extends Component {
     render() {
         return (
             <div className="main">
-                My Account
+                <h1>My Account</h1>
+                <hr/>
+                <p>{localStorage.name}</p>
+                <p>{localStorage.email}</p>
+                <hr/>
                 <Link to="/" >Back</Link>
             </div>
         )
