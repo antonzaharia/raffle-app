@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '../components/Posts/Post'
+import Post from './Post'
 
 export default function PostsList({ posts }) {
     const renderPosts = () => {

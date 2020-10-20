@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { showPost } from "../actions/PostsActions";
-import AnswerInput from "../components/Posts/AnswerInput"
-import TicketsInput from "../components/Posts/TicketsInput"
+import { showPost } from "../../actions/PostsActions";
+import AnswerInput from "./AnswerInput"
+import TicketsInput from "./TicketsInput"
+import Loading from "../Loading"
 
 //Bootstrap
 import Card from "react-bootstrap/Card";
@@ -45,7 +46,7 @@ class PostPage extends Component {
         </div>
       );
     } else {
-      return <div className="main">Loading...</div>;
+      return <Loading />
     }
   }
 }
@@ -55,5 +56,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 const mapStateToProps = (state) => ({
   post: state.posts.post,
+  requesting: state.requesting
 });
 export default connect(mapStateToProps, mapDispatchToProps)(PostPage);

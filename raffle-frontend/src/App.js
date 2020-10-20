@@ -8,7 +8,7 @@ import Footer from "./containers/Footer";
 import MainContainer from "./containers/MainContainer";
 import CartContainer from "./containers/CartContainer"
 
-import PostPage from "./containers/PostPage";
+import PostPage from "./components/Posts/PostPage";
 import AccountContainer from "./containers/AccountContainer";
 import Container from "react-bootstrap/Container";
 
