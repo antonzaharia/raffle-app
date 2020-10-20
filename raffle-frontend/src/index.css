@@ -70,6 +70,21 @@ code {
 .post-img {
   height: 200px;
 }
+.answers-flex {
+  display: flex;
+}
+.answer {
+  margin: 30px;
+  padding: 10px;
+  display: flex;
+  font-size: 20px;
+  width: 33%;
+  background-color: lightblue;
+  border-radius: 5px;
+}
+.answer:hover {
+  background-color:#23e875;
+}
 .spinner {
   margin-left: auto;
   margin-right: auto;
