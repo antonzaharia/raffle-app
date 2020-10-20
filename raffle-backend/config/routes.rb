@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :answers
+  resources :questions
   resources :posts
   resources :users, only: [:create]
   resources :sessions, only: [:create]
