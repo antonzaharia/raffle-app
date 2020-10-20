@@ -15,6 +15,7 @@ class PostPage extends Component {
     if (this.props.post) {
       return (
         <div className="main">
+            {console.log(this.props.post)}
           <Card>
             <Card.Img variant="top" src={this.props.post.image} />
           </Card>

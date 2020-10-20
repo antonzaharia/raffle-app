@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
     def show
         post = Post.find(params[:id])
-        render json: post
+        
+        render json: PostSerializer.new(post).as_json
     end
 end
