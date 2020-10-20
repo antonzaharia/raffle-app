@@ -5,6 +5,7 @@ import { showPost } from "../actions/PostsActions";
 //Bootstrap
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 class PostPage extends Component {
   componentDidMount() {
@@ -18,16 +19,18 @@ class PostPage extends Component {
             <Card.Img variant="top" src={this.props.post.image} />
           </Card>
           <Card className="text-center">
-            <Card.Header>Featured</Card.Header>
+            <Card.Header>Details</Card.Header>
             <Card.Body>
-              <Card.Title>Special title treatment</Card.Title>
-              <Card.Text>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Card.Title>{this.props.post.title}</Card.Title>
+              <Card.Text>{this.props.post.description}</Card.Text>
+              <Card.Title>$ {this.props.post.price} per ticket</Card.Title>
+              <Form>
+                <Button variant="primary">Go somewhere</Button>
+              </Form>
             </Card.Body>
-            <Card.Footer className="text-muted">2 days ago</Card.Footer>
+            <Card.Footer>
+              Winner announced on: {this.props.post.date}
+            </Card.Footer>
           </Card>
         </div>
       );
