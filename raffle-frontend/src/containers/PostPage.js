@@ -35,7 +35,7 @@ class PostPage extends Component {
                 </Card.Header>
                 <AnswerInput answers={this.props.post.answers[0]}/>
                 <TicketsInput />
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">Add to cart</Button>
               </Form>
             </Card.Body>
             <Card.Footer>

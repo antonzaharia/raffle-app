@@ -12,27 +12,23 @@ export default class TicketsInput extends Component {
   render() {
     return (
       <div className="tickets-number-container">
-        <a
+        <span
           className="number-btn"
           onClick={() => this.setState({ number: this.state.number - 1 })}
-        >
-          -
-        </a>
-        <div className="tickets-number">
+        >-</span>
+        <div>
           <Form.Control
-          onChange={() => this.setState({ number: this.state.number })}
+            onChange={() => this.setState({ number: this.state.number })}
             type="number"
             value={this.state.number}
             min="1"
             max="30"
           />
         </div>
-        <a
+        <span
           className="number-btn"
           onClick={() => this.setState({ number: this.state.number + 1 })}
-        >
-          +
-        </a>
+        >+</span>
       </div>
     );
   }

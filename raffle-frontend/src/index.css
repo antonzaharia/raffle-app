@@ -61,9 +61,7 @@ code {
   flex-wrap: wrap;
   justify-content: center;
 }
-.tickets-number {
-  min-width: 30px;
-}
+
 .flex-wrap{
   display: flex;
   flex-wrap: wrap;

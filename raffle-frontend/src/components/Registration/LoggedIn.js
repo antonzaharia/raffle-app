@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 import { logout } from '../../actions/UserActions'
 import { connect } from 'react-redux'
 
+//FontAwesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 
 function LoggedIn({logout}) {
     const handleLogout = () => {
@@ -11,6 +15,7 @@ function LoggedIn({logout}) {
     }
     return (
         <div className="right-text">
+        <Link to='/cart'><Button variant="link"><FontAwesomeIcon icon={faShoppingCart} /></Button></Link>
         <Link to='/account'><Button variant="link">{localStorage.name}</Button></Link>
         <Button className="header-btn" variant="warning" onClick={handleLogout} >Logout</Button>
         </div>

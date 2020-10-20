@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Header from "./containers/Registration/Header";
 import Footer from "./containers/Footer";
 import MainContainer from "./containers/MainContainer";
+import CartContainer from "./containers/CartContainer"
 
 import PostPage from "./containers/PostPage";
 import AccountContainer from "./containers/AccountContainer";
@@ -23,7 +24,9 @@ class App extends Component {
               <Route exact path="/account">
                 {localStorage.name ? <AccountContainer /> : <Redirect to="/" /> }
               </Route>
+              <Route path="/cart" component={CartContainer}/>
               <Route path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
+              
             </div>
           </Container>
           <Footer />
