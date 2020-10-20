@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showPost } from "../actions/PostsActions";
+import AnswerInput from "../components/Posts/AnswerInput"
+import TicketsInput from "../components/Posts/TicketsInput"
 
 //Bootstrap
 import Card from "react-bootstrap/Card";
@@ -31,20 +33,8 @@ class PostPage extends Component {
                 <Card.Header>
                   <h4>{this.props.post.question.content}</h4>
                 </Card.Header>
-                <div className="answers-flex">
-                {this.props.post.answers[0].map((answer) => (
-                  <Form.Check
-                    custom
-                    className="answer"
-                    name="answer"
-                    key={answer.id}
-                    id={answer.id}
-                    type="radio"
-                    label={answer.content}
-                  />
-                ))}
-                </div>
-                <Form.Control type="number" value="1" min="1" max="30"/>
+                <AnswerInput answers={this.props.post.answers[0]}/>
+                <TicketsInput />
                 <Button variant="primary">Go somewhere</Button>
               </Form>
             </Card.Body>
