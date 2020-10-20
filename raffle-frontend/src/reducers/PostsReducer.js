@@ -5,7 +5,7 @@ export default function PostsReducer(state = { posts: [], requesting: false }, a
         case "LOADED_POSTS":
             return {...state, posts: action.payload, requesting: false}
         case "SHOW_POST":
-            return {...state, post: action.payload}
+            return {...state, post: action.payload, requesting: false}
         default:
             return state
     }

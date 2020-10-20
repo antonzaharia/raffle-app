@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 
 export default function Post({ post }) {
   return (
-    <div className="post-card">
-      <Card style={{ width: "20rem" }}>
+    <div>
+      <Card style={{ width: "20rem" }} className="post-card">
         <Card.Img
+          className="post-img"
           variant="top"
           src={post.image}
         />
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
-          <Card.Text>{post.description}</Card.Text>
           <Link key={post.id} to={`/posts/${post.id}`}>
             <Button variant="success" block>
               ENTER NOW
