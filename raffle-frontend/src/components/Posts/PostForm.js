@@ -14,9 +14,10 @@ export default class PostForm extends Component {
     const answers = [event.target[0], event.target[1], event.target[2]];
     const numberOfTickets = event.target[3].value
     const selectedAnswer = answers.find((answer) => answer.checked);
-    if (selectedAnswer) {
+    if (selectedAnswer && localStorage.email) {
       console.log(selectedAnswer.id, numberOfTickets);
-
+    } else if(!localStorage.email) {
+      alert("You must be logged in!")
     } else {
       alert("You must select an answer!")
     }

@@ -11,8 +11,9 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 
 import UserReducer from "./reducers/UserReducer";
 import PostsReducer from "./reducers/PostsReducer";
+import CartReducer from "./reducers/CartReducer";
 
-const rootReducer = combineReducers({users: UserReducer, posts: PostsReducer})
+const rootReducer = combineReducers({users: UserReducer, posts: PostsReducer, cart: CartReducer})
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
