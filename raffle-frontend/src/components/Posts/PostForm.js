@@ -1,23 +1,43 @@
-import React from 'react'
-
-import AnswerInput from "./AnswerInput"
-import TicketsInput from "./TicketsInput"
+import AnswerInput from "./AnswerInput";
+import TicketsInput from "./TicketsInput";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 
-export default function PostForm(props) {
+import React, { Component } from "react";
+
+export default class PostForm extends Component {
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const answers = [event.target[0], event.target[1], event.target[2]];
+    const numberOfTickets = event.target[3].value
+    const selectedAnswer = answers.find((answer) => answer.checked);
+    if (selectedAnswer) {
+      console.log(selectedAnswer.id, numberOfTickets);
+
+    } else {
+      alert("You must select an answer!")
+    }
+  };
+
+  render() {
     return (
-        <Form>
-        <Card.Header>
-          <h4>{props.question}</h4>
-        </Card.Header>
-        <AnswerInput answers={props.answers}/>
-        <p>How Many Tickets?</p>
-        <TicketsInput />
-        <Button variant="primary">Add to cart</Button>
-      </Form>
-    )
+      <div>
+        <Form onSubmit={this.handleSubmit}>
+          <Card.Header>
+            <h4>{this.props.question}</h4>
+          </Card.Header>
+          <AnswerInput answers={this.props.answers} />
+          <p>How Many Tickets?</p>
+          <TicketsInput />
+          <Button type="submit" variant="primary">
+            Add to cart
+          </Button>
+        </Form>
+
+      </div>
+    );
+  }
 }
