@@ -11,6 +11,7 @@ export function newCartItem(data) {
         if ("errors" in result) {
           dispatch({ type: "FAILED", payload: result.errors });
         } else {
+            console.log(result)
           dispatch({
             type: "NEW_CART_ITEM",
             payload: result,

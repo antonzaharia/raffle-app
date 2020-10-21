@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_153355) do
+ActiveRecord::Schema.define(version: 2020_10_21_182931) do
 
   create_table "answers", force: :cascade do |t|
     t.string "content"
@@ -18,22 +18,23 @@ ActiveRecord::Schema.define(version: 2020_10_21_153355) do
     t.boolean "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
+  end 
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "cart_id"
-    t.integer "ticket_id"
     t.string "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity"
+    t.integer "cart_id"
+    t.integer "answer_id"
+    t.integer "ticket_id"
+    t.integer "post_id"
   end
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
     t.string "total"
+    t.boolean "checked_out", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "checked_out", default: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -57,7 +58,6 @@ ActiveRecord::Schema.define(version: 2020_10_21_153355) do
     t.integer "number"
     t.integer "post_id"
     t.integer "user_id"
-    t.integer "answer_id"
     t.boolean "winner", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

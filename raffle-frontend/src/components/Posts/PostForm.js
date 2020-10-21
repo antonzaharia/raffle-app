@@ -1,22 +1,30 @@
+import React, { Component } from "react";
+import { connect } from "react-redux"
+
 import AnswerInput from "./AnswerInput";
 import TicketsInput from "./TicketsInput";
+import { newCartItem } from "../../actions/CartActions"
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 
-import React, { Component } from "react";
-
-export default class PostForm extends Component {
+class PostForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const answers = [event.target[0], event.target[1], event.target[2]];
     const numberOfTickets = event.target[3].value
     const selectedAnswer = answers.find((answer) => answer.checked);
-    if (selectedAnswer && localStorage.email) {
-      console.log(selectedAnswer.id, numberOfTickets);
-    } else if(!localStorage.email) {
+    if (selectedAnswer && localStorage.id) {
+      const data = {
+        user_id: localStorage.id,
+        answer_id: selectedAnswer.id,
+        post_id: this.props.post_id,
+        numberOfTickets
+      }
+      this.props.newCartItem(data)
+    } else if(!localStorage.id) {
       alert("You must be logged in!")
     } else {
       alert("You must select an answer!")
@@ -42,3 +50,11 @@ export default class PostForm extends Component {
     );
   }
 }
+const mapDispatchToProps = dispatch => ({
+  newCartItem: data => dispatch(newCartItem(data))
+})
+const mapStateToProps = state => ({
+  post_id: state.posts.post.id
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

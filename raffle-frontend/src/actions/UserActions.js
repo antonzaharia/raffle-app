@@ -2,23 +2,25 @@ export function signUp(user) {
   return (dispatch) => {
     dispatch({ type: "LOGGING_IN" });
     fetch("http://localhost:3001/users", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(user),
-  })
-    .then((resp) => resp.json())
-    .then((result) => {
-      if ("errors" in result) {
-        dispatch({type: "FAILED", payload: result.errors}) 
-      } else {
-        localStorage.setItem("name", result.name)
-        localStorage.setItem("email", result.email)
-        dispatch({
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((resp) => resp.json())
+      .then((result) => {
+        if ("errors" in result) {
+          dispatch({ type: "FAILED", payload: result.errors });
+        } else {
+          localStorage.setItem("id", result.id);
+          localStorage.setItem("name", result.name);
+          localStorage.setItem("email", result.email);
+          dispatch({
             type: "SIGNUP",
-            payload: result
-          })
-      }
-    })}
+            payload: result,
+          });
+        }
+      });
+  };
 }
 export function login(user) {
   return (dispatch) => {
@@ -31,10 +33,11 @@ export function login(user) {
       .then((resp) => resp.json())
       .then((result) => {
         if ("errors" in result) {
-          dispatch({type: "FAILED", payload: result.errors}) 
+          dispatch({ type: "FAILED", payload: result.errors });
         } else {
-          localStorage.setItem("name", result.name)
-          localStorage.setItem("email", result.email)
+          localStorage.setItem("id", result.id);
+          localStorage.setItem("name", result.name);
+          localStorage.setItem("email", result.email);
           dispatch({
             type: "LOGIN",
             payload: result,
@@ -43,8 +46,8 @@ export function login(user) {
       });
   };
 }
-export function logout(){
-  localStorage.removeItem("name", localStorage.name)
-  localStorage.removeItem("email", localStorage.name)
-  return { type: "LOGOUT"};
+export function logout() {
+  localStorage.removeItem("name", localStorage.name);
+  localStorage.removeItem("email", localStorage.name);
+  return { type: "LOGOUT" };
 }

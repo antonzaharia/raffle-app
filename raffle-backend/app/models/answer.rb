@@ -1,4 +1,5 @@
 class Answer < ApplicationRecord
     belongs_to :question
-    has_many :tickets
+    belongs_to :post
+    has_many :cart_items
 end
