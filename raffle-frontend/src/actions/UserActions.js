@@ -38,6 +38,7 @@ export function login(user) {
           localStorage.setItem("id", result.id);
           localStorage.setItem("name", result.name);
           localStorage.setItem("email", result.email);
+          localStorage.setItem("cart_id", result.cart_id);
           dispatch({
             type: "LOGIN",
             payload: result,
@@ -49,5 +50,7 @@ export function login(user) {
 export function logout() {
   localStorage.removeItem("name", localStorage.name);
   localStorage.removeItem("email", localStorage.name);
+  localStorage.removeItem("id", localStorage.name);
+  localStorage.removeItem("cart_id", localStorage.name);
   return { type: "LOGOUT" };
 }
