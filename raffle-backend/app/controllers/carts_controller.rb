@@ -16,4 +16,9 @@ class CartsController < ApplicationController
 
         render json: CartSerializer.new(@cart).as_json
     end
+
+    def show
+        cart = Cart.find(params[:id])
+        render json: cart
+    end
 end
