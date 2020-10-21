@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showPost } from "../../actions/PostsActions";
-import AnswerInput from "./AnswerInput"
-import TicketsInput from "./TicketsInput"
+
 import Loading from "../Loading"
+import PostForm from './PostForm'
 
 //Bootstrap
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
 class PostPage extends Component {
   componentDidMount() {
@@ -30,14 +28,7 @@ class PostPage extends Component {
               <hr />
               <Card.Title>You want to get in?</Card.Title>
               <Card.Text>Answer the following question.</Card.Text>
-              <Form>
-                <Card.Header>
-                  <h4>{this.props.post.question.content}</h4>
-                </Card.Header>
-                <AnswerInput answers={this.props.post.answers[0]}/>
-                <TicketsInput />
-                <Button variant="primary">Add to cart</Button>
-              </Form>
+              <PostForm answers={this.props.post.answers[0]} question={this.props.post.question.content}/>
             </Card.Body>
             <Card.Footer>
               Winner announced on: {this.props.post.date}
