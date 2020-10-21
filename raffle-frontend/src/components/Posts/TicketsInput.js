@@ -14,20 +14,18 @@ export default class TicketsInput extends Component {
       <div className="tickets-number-container">
         <span
           className="number-btn"
-          onClick={() => this.setState({ number: this.state.number - 1 })}
+          onClick={() => this.state.number > 1 ? this.setState({ number: this.state.number - 1 }) : ""}
         >-</span>
         <div>
           <Form.Control
             onChange={() => this.setState({ number: this.state.number })}
             type="number"
             value={this.state.number}
-            min="1"
-            max="30"
           />
         </div>
         <span
           className="number-btn"
-          onClick={() => this.setState({ number: this.state.number + 1 })}
+          onClick={() => this.state.number < 30 ? this.setState({ number: this.state.number + 1 }) : ""}
         >+</span>
       </div>
     );
