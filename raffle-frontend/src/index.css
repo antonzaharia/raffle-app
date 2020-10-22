@@ -125,11 +125,13 @@ code {
   justify-content: space-around;
   width: 100%;
 }
-.cart-badge-pill{
-  min-width: 50px;
-  text-align: center;
-  line-height: 75px;
+.cart-item-header{
   font-size: 30px;
+}
+.cart-badge-pill{
+  width: 100px;
+  text-align: center;
+  line-height: 30px;
 }
 @keyframes rotation {
   from {

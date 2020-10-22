@@ -5,6 +5,7 @@ import CartItem from "../components/Cart/CartItem";
 
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Badge from "react-bootstrap/Badge";
 
 class CartContainer extends Component {
   componentDidMount() {
@@ -14,6 +15,7 @@ class CartContainer extends Component {
   }
   renderItems = () => {
     if (this.props.cart) {
+        const items = this.props.cart.cart_items_info
       return this.props.cart.cart_items_info
         .reverse()
         .map((ci) => <CartItem key={ci.id} data={ci} />);
@@ -26,6 +28,13 @@ class CartContainer extends Component {
       <Card style={{ width: "100%" }}>
         {this.props.requesting ? <p>Loading cart...</p> : ""}
         <ListGroup variant="flush">
+          <div className="cart-item cart-item-header">
+            <Badge variant="primary" className="cart-badge-pill">Post</Badge>
+            <Badge variant="primary" className="cart-badge-pill">Tickets</Badge>
+            <Badge variant="primary" className="cart-badge-pill">Answer</Badge>
+            <Badge variant="primary" className="cart-badge-pill">Price</Badge>
+            <Badge variant="primary" className="cart-badge-pill">Remove</Badge>
+          </div>
           {this.renderItems()}
         </ListGroup>
       </Card>
