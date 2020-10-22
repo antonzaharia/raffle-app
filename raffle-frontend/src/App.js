@@ -24,7 +24,9 @@ class App extends Component {
               <Route exact path="/account">
                 {localStorage.name ? <AccountContainer /> : <Redirect to="/" /> }
               </Route>
-              <Route path="/cart" component={CartContainer}/>
+              <Route exact path="/cart">
+                {localStorage.cart_id ? <CartContainer /> : <Redirect to="/" /> }
+              </Route>
               <Route path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
               
             </div>

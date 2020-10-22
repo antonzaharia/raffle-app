@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import AnswerInput from "./AnswerInput";
 import TicketsInput from "./TicketsInput";
 import { newCartItem } from "../../actions/CartActions"
+import { Redirect } from "react-router-dom";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
@@ -11,6 +12,12 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 
 class PostForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { formSent: false }
+  }
+  renderRedirect = () => this.state.formSent ? <Redirect to="/cart" /> : ""
+  
   handleSubmit = (event) => {
     event.preventDefault();
     const answers = [event.target[0], event.target[1], event.target[2]];
@@ -24,11 +31,13 @@ class PostForm extends Component {
         numberOfTickets
       }
       this.props.newCartItem(data)
+      
     } else if(!localStorage.id) {
       alert("You must be logged in!")
     } else {
       alert("You must select an answer!")
     }
+    this.setState({formSent: true})
   };
 
   render() {
@@ -45,7 +54,7 @@ class PostForm extends Component {
             Add to cart
           </Button>
         </Form>
-
+        {this.renderRedirect()}
       </div>
     );
   }

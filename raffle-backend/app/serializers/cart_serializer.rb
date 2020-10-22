@@ -6,4 +6,12 @@ class CartSerializer < ActiveModel::Serializer
       CartItemSerializer.new(cart_item)
     end
   end
+
+  def total
+    to_return = 0.0
+    object.cart_items.each do |ci|
+      to_return = to_return + ci.price.to_f
+    end
+    total = to_return
+  end
 end

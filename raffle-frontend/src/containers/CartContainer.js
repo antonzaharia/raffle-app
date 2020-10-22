@@ -16,7 +16,7 @@ class CartContainer extends Component {
   renderItems = () => {
     if (this.props.cart) {
       return this.props.cart.cart_items_info
-        .map((ci) => <CartItem key={ci.id} data={ci} />);
+        .map((ci) => <CartItem key={ci.id} data={ci} /> )
     } else {
       return "Cart empty.";
     }
@@ -35,6 +35,7 @@ class CartContainer extends Component {
           </div>
           {this.renderItems()}
         </ListGroup>
+        {this.props.cart ? <h3 className="center-text">Total: ${this.props.cart.total}</h3> : ""}
       </Card>
     );
   }

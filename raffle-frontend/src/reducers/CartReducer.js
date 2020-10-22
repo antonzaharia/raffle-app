@@ -8,7 +8,9 @@ export default function CartReducer(state = { cart: null, requesting: false }, a
             return {...state, cart: action.payload, requesting: false}
         case "ITEM_REMOVED":
             const newCart = state.cart.cart_items_info.filter( ci => ci.id !== action.payload)
-            return {...state, cart: {...state.cart, cart_items_info: newCart}, requesting: false}
+            const cart_item = state.cart.cart_items_info.find( ci => ci.id === action.payload)
+            const newTotal = parseFloat(state.cart.total) - parseFloat(cart_item.price)
+            return {...state, cart: {...state.cart, total: newTotal, cart_items_info: newCart}, requesting: false}
         default:
             return state
     }
