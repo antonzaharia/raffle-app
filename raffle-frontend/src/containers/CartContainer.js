@@ -6,6 +6,8 @@ import CartItem from "../components/Cart/CartItem";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
 
 class CartContainer extends Component {
   componentDidMount() {
@@ -33,7 +35,12 @@ class CartContainer extends Component {
             <Badge variant="primary" className="cart-badge-pill">Price</Badge>
             <Badge variant="primary" className="cart-badge-pill">Remove</Badge>
           </div>
-          {this.renderItems()}
+          <Form className="right-text">
+            {this.renderItems()}
+            <br />
+            <hr />
+            <Button variant="success">CheckOut</Button>
+          </Form>
         </ListGroup>
         {this.props.cart ? <h3 className="center-text">Total: ${this.props.cart.total}</h3> : ""}
       </Card>

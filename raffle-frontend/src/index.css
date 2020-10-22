@@ -133,6 +133,9 @@ code {
   text-align: center;
   line-height: 30px;
 }
+.cart-form {
+  width: 50px;
+}
 @keyframes rotation {
   from {
     transform: rotate(0deg);

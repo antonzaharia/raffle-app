@@ -5,7 +5,7 @@ export default class TicketsInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: 1,
+      number: this.props.value ? this.props.value : 1
     };
   }
 
