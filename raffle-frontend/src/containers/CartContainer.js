@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { loadCart } from "../actions/CartActions";
 import CartItem from "../components/Cart/CartItem";
 
-import Table from "react-bootstrap/Table";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
 class CartContainer extends Component {
   componentDidMount() {
@@ -13,27 +14,21 @@ class CartContainer extends Component {
   }
   renderItems = () => {
     if (this.props.cart) {
-      return this.props.cart.cart_items
+      return this.props.cart.cart_items_info
         .reverse()
-        .map((ci) => <CartItem key={ci.id} data={ci}/>);
+        .map((ci) => <CartItem key={ci.id} data={ci} />);
     } else {
       return "Cart empty.";
     }
   };
   render() {
     return (
-      <div>
+      <Card style={{ width: "100%" }}>
         {this.props.requesting ? <p>Loading cart...</p> : ""}
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Quantity</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderItems()}</tbody>
-        </Table>
-      </div>
+        <ListGroup variant="flush">
+          {this.renderItems()}
+        </ListGroup>
+      </Card>
     );
   }
 }
