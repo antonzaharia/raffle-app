@@ -15,9 +15,7 @@ class CartContainer extends Component {
   }
   renderItems = () => {
     if (this.props.cart) {
-        const items = this.props.cart.cart_items_info
       return this.props.cart.cart_items_info
-        .reverse()
         .map((ci) => <CartItem key={ci.id} data={ci} />);
     } else {
       return "Cart empty.";
