@@ -10,7 +10,7 @@ class CartSerializer < ActiveModel::Serializer
   def total
     to_return = 0.0
     object.cart_items.each do |ci|
-      to_return = to_return + ci.price.to_f
+      to_return = to_return + (ci.price.to_f*ci.quantity)
     end
     total = to_return
   end
