@@ -32,7 +32,6 @@ export function loadCart(cartId) {
       );
   };
 }
-
 export function deleteCartItem(id) {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
@@ -48,5 +47,26 @@ export function deleteCartItem(id) {
           payload: result,
         })
       );
+  };
+}
+export function checkout(data) {
+  return (dispatch) => {
+    dispatch({ type: "LOADING" });
+    fetch("http://localhost:3001/tickets", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((resp) => resp.json())
+      .then((result) => {
+        if ("errors" in result) {
+          dispatch({ type: "FAILED", payload: result.errors });
+        } else {
+          dispatch({
+            type: "CHECKOUT",
+            payload: result
+          });
+        }
+      });
   };
 }
