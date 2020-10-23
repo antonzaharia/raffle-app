@@ -15,7 +15,6 @@ export default function CartForm({cart, checkout}) {
         }
       };
     const handleSubmit = (event) => {
-        event.persist()
         event.preventDefault()
         const getQuantities = Object.keys(event.target).map( t => event.target[t].type === "number" ? parseInt(event.target[t].value) : "")
         const newQuantities = getQuantities.filter( o => o !== "")
