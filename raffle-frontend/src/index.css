@@ -61,18 +61,17 @@ code {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .flex-wrap{
   display: flex;
-  flex-wrap: wrap;
-  padding-left: 0
+  justify-content: space-evenly;
 }
-.flex-post {
+/* .flex-post {
   list-style: none;
   flex: 0 0 33.333333%;
-}
+} */
 .post-card {
   height: 330px;
+  
 }
 .post-img {
   height: 200px;
@@ -80,21 +79,21 @@ code {
 .answers-flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .answer {
-  min-width: 40px;
-  margin: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 10px;
-  display: flex;
+  min-width: 150px;
   font-size: 20px;
-  width: 33%;
   background-color: lightblue;
   border-radius: 5px;
 }
 .answer:hover {
   background-color:#23e875;
 }
+
 .number-btn {
   display: inline-block;
   padding-left: 10px;
@@ -126,6 +125,7 @@ code {
   width: 100%;
 }
 .cart-item-header{
+  padding-left: 20px;
   font-size: 30px;
 }
 .cart-badge-pill{

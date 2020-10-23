@@ -8,7 +8,6 @@ export default function PostsList({ posts }) {
     return (
     <div className="flex-wrap">
       {renderPosts()}
-      
     </div>
     )
 }
