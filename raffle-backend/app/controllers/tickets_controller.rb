@@ -20,6 +20,6 @@ class TicketsController < ApplicationController
             cart.checked_out = true
             user.carts.create
         end
-        render json: {tickets: tickets, wrong_answers: wrong_answers, cart: user.carts.last}
+        render json: {tickets: tickets, wrong_answers: wrong_answers, cart: CartSerializer.new(user.carts.last)}
     end
 end

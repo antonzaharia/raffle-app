@@ -12,7 +12,6 @@ export default function CartReducer(state = { cart: null, requesting: false }, a
             const newTotal = parseFloat(state.cart.total) - (parseFloat(cart_item.price) * parseFloat(cart_item.quantity))
             return {...state, cart: {...state.cart, total: newTotal.toFixed(2), cart_items_info: newCart}, requesting: false}
         case "CHECKOUT":
-            console.log(action.payload.cart)
             return {...state, cart: action.payload.cart, requesting: false}
         default:
             return state

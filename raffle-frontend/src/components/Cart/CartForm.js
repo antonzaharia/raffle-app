@@ -3,15 +3,14 @@ import CartItem from "../Cart/CartItem";
 
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import { parse } from '@fortawesome/fontawesome-svg-core';
 
 export default function CartForm({cart, checkout}) {
     const renderItems = () => {
-        if (cart && cart.cart_items_info && localStorage.cart_id) {
+        if (cart && cart.cart_items_info.length > 0 && localStorage.cart_id) {
           return cart.cart_items_info
             .map((ci) => <CartItem key={ci.id} data={ci} /> )
         } else {
-          return "Cart empty.";
+          return <div className="center-text"><br />Cart empty.</div>;
         }
       };
     const handleSubmit = (event) => {
@@ -30,7 +29,7 @@ export default function CartForm({cart, checkout}) {
         {renderItems()}
         <br />
         <hr />
-        <Button type="submit" variant="success">CheckOut</Button>
+        {cart && cart.cart_items_info.length > 0 ? <Button type="submit" variant="success">CheckOut</Button> : ""}
       </Form>
     )
 }
