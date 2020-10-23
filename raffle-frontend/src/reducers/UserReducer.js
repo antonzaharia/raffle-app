@@ -22,7 +22,7 @@ export default function UserReducer(state = {user: null, requesting: false, erro
     case "LOGOUT":
       return {...state, user: ""}
     case "LOAD_USER":
-      return {...state, user: action.payload}
+      return {...state, user: action.payload }
     default:
       return state;
   }
