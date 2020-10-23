@@ -14,6 +14,7 @@ export function signUp(user) {
           localStorage.setItem("id", result.id);
           localStorage.setItem("name", result.name);
           localStorage.setItem("email", result.email);
+          localStorage.setItem("cart_id", result.cart_id);
           dispatch({
             type: "SIGNUP",
             payload: result,

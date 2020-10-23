@@ -16,7 +16,7 @@ class CartContainer extends Component {
     }
   }
   renderItems = () => {
-    if (this.props.cart) {
+    if (this.props.cart && localStorage.cart_id) {
       return this.props.cart.cart_items_info
         .map((ci) => <CartItem key={ci.id} data={ci} /> )
     } else {
