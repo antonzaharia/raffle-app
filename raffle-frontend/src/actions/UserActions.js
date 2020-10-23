@@ -55,3 +55,12 @@ export function logout() {
   localStorage.removeItem("cart_id", localStorage.name);
   return { type: "LOGOUT" };
 }
+
+export function loadUser(id) {
+  return (dispatch) => {
+    dispatch({ type: "START_LOADING_USER" });
+    fetch(`http://localhost:3001/users/${id}`)
+      .then((resp) => resp.json())
+      .then((user) => dispatch({ type: "LOAD_USER", payload: user }));
+  };
+}

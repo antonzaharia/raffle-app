@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :cart_id
+  attributes :id, :name, :email, :cart_id, :tickets
 
   def cart_id
     if object.carts.size > 0
@@ -7,5 +7,8 @@ class UserSerializer < ActiveModel::Serializer
     else
       cart_id = object.carts.create.id
     end
+  end
+  def tickets
+    tickets = object.tickets
   end
 end

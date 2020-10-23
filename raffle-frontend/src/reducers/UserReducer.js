@@ -20,7 +20,9 @@ export default function UserReducer(state = {user: null, requesting: false, erro
         }
       return {...state, user, requesting: false, errors: false};
     case "LOGOUT":
-        return {...state, user: ""}
+      return {...state, user: ""}
+    case "LOAD_USER":
+      return {...state, user: action.payload}
     default:
       return state;
   }
