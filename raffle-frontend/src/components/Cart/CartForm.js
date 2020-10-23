@@ -14,9 +14,16 @@ export default function CartForm({cart, checkout}) {
         }
       };
     const handleSubmit = (event) => {
+        event.persist()
         event.preventDefault()
-
-        checkout("data")
+        const getQuantities = Object.keys(event.target).map( t => event.target[t].type === "number" ? event.target[t].value : "")
+        const newQuantities = getQuantities.filter( o => o !== "")
+        const data = {
+            user_id: localStorage.id,
+            cart_id: cart.id,
+            quantities: newQuantities
+        }
+        checkout(data)
       }
     return (
         <Form className="right-text" onSubmit={handleSubmit}>
