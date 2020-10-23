@@ -3,10 +3,11 @@ import CartItem from "../Cart/CartItem";
 
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import { parse } from '@fortawesome/fontawesome-svg-core';
 
 export default function CartForm({cart, checkout}) {
     const renderItems = () => {
-        if (cart && localStorage.cart_id) {
+        if (cart && cart.cart_items_info && localStorage.cart_id) {
           return cart.cart_items_info
             .map((ci) => <CartItem key={ci.id} data={ci} /> )
         } else {
@@ -16,12 +17,12 @@ export default function CartForm({cart, checkout}) {
     const handleSubmit = (event) => {
         event.persist()
         event.preventDefault()
-        const getQuantities = Object.keys(event.target).map( t => event.target[t].type === "number" ? event.target[t].value : "")
+        const getQuantities = Object.keys(event.target).map( t => event.target[t].type === "number" ? parseInt(event.target[t].value) : "")
         const newQuantities = getQuantities.filter( o => o !== "")
         const data = {
             user_id: localStorage.id,
             cart_id: cart.id,
-            quantities: newQuantities
+            quantities: [...newQuantities]
         }
         checkout(data)
       }
