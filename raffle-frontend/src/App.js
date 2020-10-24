@@ -29,18 +29,17 @@ class App extends Component {
                 {localStorage.cart_id ? <CartContainer /> : <Redirect to="/" /> }
               </Route>
               <Route path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
-              <Route path={"/admin"} ><Admin state={this.props.state}/> </Route>
             </div>
           </Container>
           <Footer />
         </Router>
+        {console.log(this.props.posts)}
       </div>
     );
   }
 }
 const mapStateToProps = (state) => ({
-  user: state.users.user,
-  state: state
+  user: state.users.user
 });
 
 export default connect(mapStateToProps)(App);
