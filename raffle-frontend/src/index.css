@@ -132,22 +132,22 @@ code {
   animation: rotation 2s infinite linear;
 }
 .cart-item {
-  text-align: left;
-  /* display: flex;
+  display: flex;
   justify-content: space-around;
-  width: 100%; */
+  align-items: stretch;
+}
+.cart-input {
+  min-width: 50px;
+  max-width: 60px;
 }
 .cart-delete-btn {
-  float: right;
-  width: 45px;
+  margin-top: 30px;
+  margin-right: 20px;
+  height: 40px;
 }
 .cart-data {
-  display: inline-block;
-}
-.cart-badge-pill{
-  /* width: 100px;
-  text-align: center;
-  line-height: 30px; */
+  margin-right: 20px;
+  flex-basis:200px;
 }
 @keyframes rotation {
   from {

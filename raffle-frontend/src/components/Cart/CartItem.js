@@ -13,12 +13,12 @@ class CartItem extends Component {
       <ListGroup.Item variant="primary">
         <div className="cart-item">
           <div className="cart-data">
-          <p className="cart-badge-pill">Raffle title: {this.props.data.post.title}</p>
-          <p className="cart-badge-pill">Your answer: {this.props.data.answer.content}</p>
-          <p className="cart-badge-pill">Price per ticket: ${this.props.data.price}</p>
+          <p className="cart-badge-pill">Raffle title: <b>{this.props.data.post.title}</b></p>
+          <p className="cart-badge-pill">Your answer: <b>{this.props.data.answer.content}</b></p>
+          <p className="cart-badge-pill">Price per ticket: <b>${this.props.data.price}</b></p>
           </div>
-          <Button variant="danger" onClick={ () => this.props.deleteCartItem(this.props.data.id) }>Delete</Button>
-          <div className="cart-delete-btn"><TicketsInput value={parseInt(this.props.data.quantity)}/></div>
+          <Button className="cart-delete-btn" variant="danger" onClick={ () => this.props.deleteCartItem(this.props.data.id) }>Delete</Button>
+          <div className="cart-input"><TicketsInput value={parseInt(this.props.data.quantity)}/></div>
         </div>
         
       </ListGroup.Item>
