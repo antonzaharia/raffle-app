@@ -5,6 +5,7 @@ export default function TicketsContainer({tickets}) {
     return (
         <div>
             <h3 className="center-text">Your Tickets:</h3>
+            {tickets.length === 0 ? "No tickets" : ""}
             {tickets.map( ticket => {
                     return <Ticket key={ticket.id} ticket={ticket} />
             })}

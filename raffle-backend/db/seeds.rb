@@ -8,12 +8,15 @@
 Post.delete_all
 Question.delete_all
 Answer.delete_all
+Ticket.delete_all
+Cart.delete_all
+CartItem.delete_all
 
 p1 = Post.create({
     title: "Ford Focus ST3",
     description: "We are proud to present to you a stunning Ford Focus ST3. This car runs and drives perfectly, wheels and bodywork in great condition. This is a great car to take out for a fun drive or head somewhere with the family. Its quick & sounds fantastic.",
     price: "1.99",
-    date: "12.12.2020",
+    date: "2020-10-25",
     max_tickets: 100,
     image: "https://www.clickcompetitions.co.uk/wp-content/uploads/2020/10/DSC01392.jpg.jpg"
     })
@@ -21,7 +24,7 @@ p2 = Post.create({
     title: "Ford Focus ST3",
     description: "We are proud to present to you a stunning Ford Focus ST3. This car runs and drives perfectly, wheels and bodywork in great condition. This is a great car to take out for a fun drive or head somewhere with the family. Its quick & sounds fantastic.",
     price: "1.99",
-    date: "12.12.2020",
+    date: "2020-10-25",
     max_tickets: 100,
     image: "https://www.clickcompetitions.co.uk/wp-content/uploads/2020/10/DSC01423.jpg"
         })
