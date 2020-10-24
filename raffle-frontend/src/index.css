@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.bold-text {
+  font-weight: bold;
+  font-weight: 1000;
+}
 .button {
   color:white;
   transition: 0.3s;
@@ -80,7 +84,6 @@ code {
 } */
 .post-card {
   height: 330px;
-  
 }
 .post-img {
   height: 200px;
@@ -129,21 +132,22 @@ code {
   animation: rotation 2s infinite linear;
 }
 .cart-item {
-  display: flex;
+  text-align: left;
+  /* display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 100%; */
 }
-.cart-item-header{
-  padding-left: 20px;
-  font-size: 30px;
+.cart-delete-btn {
+  float: right;
+  width: 45px;
+}
+.cart-data {
+  display: inline-block;
 }
 .cart-badge-pill{
-  width: 100px;
+  /* width: 100px;
   text-align: center;
-  line-height: 30px;
-}
-.cart-form {
-  width: 50px;
+  line-height: 30px; */
 }
 @keyframes rotation {
   from {

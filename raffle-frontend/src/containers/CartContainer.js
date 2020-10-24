@@ -5,7 +5,6 @@ import CartForm from "../components/Cart/CartForm"
 
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import Badge from "react-bootstrap/Badge";
 
 
 class CartContainer extends Component {
@@ -17,16 +16,9 @@ class CartContainer extends Component {
   
   render() {
     return (
-      <Card style={{ width: "100%" }}>
+      <Card style={{ width: "100%" }} variant="primary">
         {this.props.requesting ? <p>Loading cart...</p> : ""}
         <ListGroup variant="flush">
-          <div className="cart-item cart-item-header">
-            <Badge variant="primary" className="cart-badge-pill">Post</Badge>
-            <Badge variant="primary" className="cart-badge-pill">Tickets</Badge>
-            <Badge variant="primary" className="cart-badge-pill">Answer</Badge>
-            <Badge variant="primary" className="cart-badge-pill">Price</Badge>
-            <Badge variant="primary" className="cart-badge-pill">Remove</Badge>
-          </div>
           <CartForm cart={this.props.cart} checkout={this.props.checkout}/>
         </ListGroup>
         {this.props.cart ? <h3 className="center-text">Total: ${this.props.cart.total}</h3> : ""}

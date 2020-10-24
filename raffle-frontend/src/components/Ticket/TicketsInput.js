@@ -8,6 +8,9 @@ export default class TicketsInput extends Component {
       number: this.props.value ? this.props.value : 1
     };
   }
+  handleChange = event => {
+    
+  }
 
   render() {
     return (

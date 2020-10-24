@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux"
 
 import AnswerInput from "./AnswerInput";
-import TicketsInput from "./TicketsInput";
+import TicketsInput from "../Ticket/TicketsInput";
 import { newCartItem } from "../../actions/CartActions"
 import { Redirect } from "react-router-dom";
 

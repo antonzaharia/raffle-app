@@ -18,5 +18,5 @@ export default function FeaturedPosts({ posts }) {
       </Carousel.Item>
     ));
   };
-  return <Carousel>{loadPost()}</Carousel>;
+  return <Carousel className="carousel">{loadPost()}</Carousel>;
 }
