@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_182931) do
+ActiveRecord::Schema.define(version: 2020_10_24_175255) do
 
   create_table "answers", force: :cascade do |t|
     t.string "content"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_10_21_182931) do
     t.boolean "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end 
+  end
 
   create_table "cart_items", force: :cascade do |t|
     t.string "price"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_10_21_182931) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
   end
 
 end

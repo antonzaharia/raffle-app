@@ -11,6 +11,7 @@ import CartContainer from "./containers/CartContainer"
 import PostPage from "./components/Posts/PostPage";
 import AccountContainer from "./containers/AccountContainer";
 import Container from "react-bootstrap/Container";
+import Admin from "./containers/Admin/Admin";
 
 class App extends Component {
   render() {
@@ -28,7 +29,7 @@ class App extends Component {
                 {localStorage.cart_id ? <CartContainer /> : <Redirect to="/" /> }
               </Route>
               <Route path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
-              
+              <Route path={"/admin"} ><Admin state={this.props.state}/> </Route>
             </div>
           </Container>
           <Footer />
@@ -38,7 +39,8 @@ class App extends Component {
   }
 }
 const mapStateToProps = (state) => ({
-  user: state.users.user
+  user: state.users.user,
+  state: state
 });
 
 export default connect(mapStateToProps)(App);

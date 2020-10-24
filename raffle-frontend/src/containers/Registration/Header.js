@@ -1,10 +1,13 @@
 import React from "react";
 import Registration from "./Registration";
 import LoggedIn from "../../components/Registration/LoggedIn";
+import Admin from "../Admin/AdminButton";
 
 export default function Header(props) {
   const loggedIn = () => {
-    if (props.user || localStorage.email) {
+    if(props.user && props.user.admin || localStorage.admin) {
+      return <Admin />
+    } else if (props.user || localStorage.email) {
       return <LoggedIn />
     } else {
        return <Registration />
