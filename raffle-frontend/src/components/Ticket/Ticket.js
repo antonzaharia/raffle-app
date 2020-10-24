@@ -1,12 +1,10 @@
 import React from "react";
+import { makeLink } from '../../helpers/helpers'
 
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 export default function Ticket({ ticket }) {
-  const makeLink = (id) => {
-    return `/posts/${id}`;
-  };
   return (
     <div>
       <Card>

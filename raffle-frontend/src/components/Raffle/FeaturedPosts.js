@@ -1,6 +1,9 @@
 import React from "react";
+import { makeLink } from '../../helpers/helpers'
 
 import Carousel from "react-bootstrap/Carousel";
+import Button from "react-bootstrap/esm/Button";
+import { Link } from "react-router-dom";
 
 export default function FeaturedPosts({ posts }) {
   const loadPost = () => {
@@ -9,7 +12,8 @@ export default function FeaturedPosts({ posts }) {
         <img className="d-block w-100" src={post.image} alt="First slide" />
         <Carousel.Caption>
           <h3>{post.title}</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Winner will be announced today!</p>
+          <Button><Link className="button" to={makeLink(post.id)}>See Post</Link></Button>
         </Carousel.Caption>
       </Carousel.Item>
     ));
