@@ -31,6 +31,6 @@ export function editPost(post) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),
     }).then((resp) => resp.json())
-    .then((result) => dispatch({ type: "CREATE_POST", payload: result}));
+    .then((result) => dispatch({ type: "EDIT_POST", payload: result}));
   }
 }

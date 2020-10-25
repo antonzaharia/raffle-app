@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button"
 import { editPost } from "../../actions/PostsActions";
+import NewEditForm from "./NewEditForm";
 
 class EditPostForm extends Component {
     constructor(props) {
@@ -47,19 +46,7 @@ class EditPostForm extends Component {
     }
     
   render() {
-    return <Form onSubmit={this.handleSubmit}><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.title} name="title" type="text" placeholder="Post Title" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.description} name="description" type="textarea" placeholder="Post Description" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.maxtickets} name="maxtickets" type="number" placeholder="Max Tickets" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.image} name="image" type="text" placeholder="Image Link" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.date} name="date" type="date" placeholder="Raffle Date" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.price} name="price" type="text" placeholder="Ticket Price" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.question} name="question" type="text" placeholder="Raffle Question" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.answer1} name="answer1" type="text" placeholder="Enter a False Answer" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.answer2} name="answer2" type="text" placeholder="Enter a False Answer" /><br/>
-        <Form.Control onChange={this.handleChange} value={this.state.answer3} name="answer3" type="text" placeholder="Enter the True Answer" /><br/>
-        <Button type="submit">Edit Post</Button>
-    </Form>
+    return <><NewEditForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} state={this.state}/></>
   }
 }
 const mapDispatchToProps = dispatch => ({

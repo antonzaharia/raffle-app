@@ -9,8 +9,7 @@ export default function PostsReducer(state = { posts: [], requesting: false }, a
         case "CREATE_POST":
             return {...state, posts: [...state.posts, action.payload]}
         case "EDIT_POST":
-            console.log(action.payload)
-            return {...state}
+            return {...state, post: [action.payload]}
         default:
             return state
     }
