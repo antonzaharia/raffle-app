@@ -29,11 +29,11 @@ class App extends Component {
                 {localStorage.cart_id ? <CartContainer /> : <Redirect to="/" /> }
               </Route>
               <Route path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
+              <Route path={"/admin"} ><Admin posts={this.props.posts}/></Route>
             </div>
           </Container>
           <Footer />
         </Router>
-        {console.log(this.props.posts)}
       </div>
     );
   }

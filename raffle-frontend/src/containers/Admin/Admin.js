@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/esm/Card";
-import { Route } from "react-router-dom";
 import AdminPostContainer from "./AdminPostContainer";
 
 export default class Admin extends Component {

@@ -12,7 +12,7 @@ class MainContainer extends Component {
     this.props.loadPosts();
   }
   checkUser = () => {
-    if(this.props.user && this.props.user.admin || localStorage.admin) {
+    if(localStorage.admin === "true") {
       return <Admin posts={this.props.posts}/>
     } else {
       return <div className="main">

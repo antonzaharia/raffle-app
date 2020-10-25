@@ -1,7 +1,6 @@
 import React from "react";
 import Registration from "./Registration";
 import LoggedIn from "../../components/Registration/LoggedIn";
-import Admin from "../Admin/AdminButton";
 
 export default function Header(props) {
   const loggedIn = () => {
