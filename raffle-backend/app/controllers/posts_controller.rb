@@ -51,4 +51,10 @@ class PostsController < ApplicationController
 
         render json: post
     end
+
+    def destroy
+        Post.destroy_by(id: params[:id])
+
+        render json: params[:id]
+    end
 end

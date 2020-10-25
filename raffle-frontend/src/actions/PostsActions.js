@@ -37,7 +37,7 @@ export function editPost(post) {
 export function deletePost(id) {
   return (dispatch) => {
     fetch(`http://localhost:3001/posts/${id}`, {
-      method: "PATCH",
+      method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(id),
     }).then((resp) => resp.json())
