@@ -10,7 +10,7 @@ class NewPostForm extends Component {
         this.state = {
             title: "",
             description: "",
-            maxtickets: "",
+            max_tickets: "",
             image: "",
             date: "",
             price: "",
@@ -28,7 +28,7 @@ class NewPostForm extends Component {
         const post = {
             title: this.state.title,
             description: this.state.description,
-            max_tickets: this.state.maxtickets,
+            max_tickets: this.state.max_tickets,
             image: this.state.image,
             date: this.state.date,
             price: this.state.price,

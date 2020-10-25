@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :image, :description, :price, :date, :question, :answers, :tickets_number
+  attributes :id, :title, :image, :description, :max_tickets, :price, :date, :question, :answers, :tickets_number
 
   def question
     question = object.questions.first

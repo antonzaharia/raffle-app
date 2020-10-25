@@ -10,7 +10,7 @@ class EditPostForm extends Component {
         this.state = {
             title: props.post.title,
             description: props.post.description,
-            maxtickets: props.post.max,
+            max_tickets: props.post.max_tickets,
             image: props.post.image,
             date: props.post.date,
             price: props.post.price,
@@ -29,7 +29,7 @@ class EditPostForm extends Component {
             id: this.props.post.id,
             title: this.state.title,
             description: this.state.description,
-            max_tickets: this.state.maxtickets,
+            max_tickets: this.state.max_tickets,
             image: this.state.image,
             date: this.state.date,
             price: this.state.price,
