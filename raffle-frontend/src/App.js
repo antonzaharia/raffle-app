@@ -12,6 +12,7 @@ import PostPage from "./components/Posts/PostPage";
 import AccountContainer from "./containers/AccountContainer";
 import Container from "react-bootstrap/Container";
 import Admin from "./containers/Admin/Admin";
+import NewPost from "./components/Posts/NewPost";
 
 class App extends Component {
   render() {
@@ -29,7 +30,8 @@ class App extends Component {
                 {localStorage.cart_id ? <CartContainer /> : <Redirect to="/" /> }
               </Route>
               <Route path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
-              <Route path={"/admin"} ><Admin posts={this.props.posts}/></Route>
+              <Route exact path={"/admin"} ><Admin posts={this.props.posts}/></Route>
+              <Route path={"/admin/posts/new"}><NewPost /></Route>
             </div>
           </Container>
           <Footer />
@@ -39,7 +41,8 @@ class App extends Component {
   }
 }
 const mapStateToProps = (state) => ({
-  user: state.users.user
+  user: state.users.user,
+  posts: state.posts.posts
 });
 
 export default connect(mapStateToProps)(App);

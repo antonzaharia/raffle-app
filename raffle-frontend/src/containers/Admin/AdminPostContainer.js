@@ -6,7 +6,7 @@ import AdminPostCard from './AdminPostCard'
 export default function AdminPostContainer({posts}) {
     return (
         <div className="center-text">
-            <Link to="/posts/new"><Button>New Post</Button></Link>
+            <Link to="/admin/posts/new"><Button>New Post</Button></Link>
             {posts.map( post => <AdminPostCard key={post.id} post={post}/>)}
         </div>
     )

@@ -6,6 +6,7 @@ import Loading from "../components/Loading"
 import DateCheck from "../components/Raffle/DateCheck";
 import Card from "react-bootstrap/esm/Card";
 import Admin from "./Admin/Admin";
+import { Redirect } from "react-router-dom";
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -13,7 +14,8 @@ class MainContainer extends Component {
   }
   checkUser = () => {
     if(localStorage.admin === "true") {
-      return <Admin posts={this.props.posts}/>
+      // return <Admin posts={this.props.posts}/>
+      return <Redirect to="/admin" />
     } else {
       return <div className="main">
       {this.props.requesting ? <Loading /> : ""}
