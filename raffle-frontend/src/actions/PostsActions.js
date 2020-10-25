@@ -16,7 +16,7 @@ export function showPost(postId) {
 }
 export function newPost(post) {
   return (dispatch) => {
-    fetch("http://localhost:3001/posts" ,{
+    fetch("http://localhost:3001/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),
@@ -24,4 +24,13 @@ export function newPost(post) {
     .then((result) => dispatch({ type: "CREATE_POST", payload: result}));
   }
 }
-
+export function editPost(post) {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/posts/${post.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    }).then((resp) => resp.json())
+    .then((result) => dispatch({ type: "CREATE_POST", payload: result}));
+  }
+}

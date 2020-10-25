@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button"
-import { newPost } from "../../actions/PostsActions";
+import { editPost } from "../../actions/PostsActions";
 
 class EditPostForm extends Component {
     constructor(props) {
@@ -27,18 +27,23 @@ class EditPostForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const post = {
+            id: this.props.post.id,
             title: this.state.title,
             description: this.state.description,
             max_tickets: this.state.maxtickets,
             image: this.state.image,
             date: this.state.date,
             price: this.state.price,
+            question_id: this.props.post.question.id,
             question: this.state.question,
             answer1: this.state.answer1,
+            answer1_id: this.props.post.answers[0][0].id,
             answer2: this.state.answer2,
-            answer3: this.state.answer3
+            answer2_id: this.props.post.answers[0][1].id,
+            answer3: this.state.answer3,
+            answer3_id: this.props.post.answers[0][2].id
         }
-        this.props.newPost(post)
+        this.props.editPost(post)
     }
     
   render() {
@@ -58,6 +63,6 @@ class EditPostForm extends Component {
   }
 }
 const mapDispatchToProps = dispatch => ({
-    newPost: post => dispatch(newPost(post))
+    editPost: post => dispatch(editPost(post))
 })
 export default connect(null, mapDispatchToProps)(EditPostForm)
