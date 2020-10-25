@@ -34,3 +34,13 @@ export function editPost(post) {
     .then((result) => dispatch({ type: "EDIT_POST", payload: result}));
   }
 }
+export function deletePost(id) {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/posts/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(id),
+    }).then((resp) => resp.json())
+    .then((result) => dispatch({ type: "DELETE_POST", payload: result}));
+  }
+}
