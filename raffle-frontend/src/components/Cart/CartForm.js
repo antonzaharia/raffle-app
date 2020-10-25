@@ -1,10 +1,16 @@
 import React from 'react'
+import { useState } from 'react'
+import { connect } from 'react-redux'
 import CartItem from "../Cart/CartItem";
 
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import Message from '../Message';
 
-export default function CartForm({cart, checkout}) {
+function CartForm({cart, checkout, message}) {
+  
+  const [redirect, setRedirect] = useState(0)
+
     const renderItems = () => {
         if (cart && cart.cart_items_info.length > 0 && localStorage.cart_id) {
           return cart.cart_items_info
@@ -23,6 +29,7 @@ export default function CartForm({cart, checkout}) {
             quantities: [...newQuantities]
         }
         checkout(data)
+        setRedirect(1)
       }
     return (
         <Form className="right-text" onSubmit={handleSubmit}>
@@ -30,6 +37,11 @@ export default function CartForm({cart, checkout}) {
         <br />
         <hr />
         {cart && cart.cart_items_info.length > 0 ? <Button type="submit" variant="success">CheckOut</Button> : ""}
+        {redirect === 1 ? <Message data={message} /> : ""}
       </Form>
     )
 }
+const mapStateToProps = state => ({
+  message: state.cart.message
+})
+export default connect(mapStateToProps)(CartForm)

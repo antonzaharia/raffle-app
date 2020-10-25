@@ -63,6 +63,7 @@ export function checkout(data) {
           dispatch({ type: "FAILED", payload: result.errors });
         } else {
           localStorage.setItem("cart_id", result.cart.id);
+          console.log(result)
           dispatch({
             type: "CHECKOUT",
             payload: result
