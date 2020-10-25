@@ -24,3 +24,4 @@ export function newPost(post) {
     .then((result) => dispatch({ type: "CREATE_POST", payload: result}));
   }
 }
+

@@ -13,6 +13,7 @@ import AccountContainer from "./containers/AccountContainer";
 import Container from "react-bootstrap/Container";
 import Admin from "./containers/Admin/Admin";
 import NewPost from "./components/Posts/NewPost";
+import EditPost from "./components/Posts/EditPost";
 
 class App extends Component {
   render() {
@@ -29,9 +30,10 @@ class App extends Component {
               <Route exact path="/cart">
                 {localStorage.cart_id ? <CartContainer /> : <Redirect to="/" /> }
               </Route>
-              <Route path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
+              <Route exact path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
               <Route exact path={"/admin"} ><Admin posts={this.props.posts}/></Route>
               <Route path={"/admin/posts/new"}><NewPost /></Route>
+              <Route exact path={`/posts/:postId/edit`} render={routerProps => <EditPost {...routerProps} /> } />
             </div>
           </Container>
           <Footer />
