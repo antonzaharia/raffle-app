@@ -14,3 +14,13 @@ export function showPost(postId) {
       .then((post) => dispatch({ type: "SHOW_POST", payload: post }));
   };
 }
+export function newPost(post) {
+  return (dispatch) => {
+    fetch("http://localhost:3001/posts" ,{
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    }).then((resp) => resp.json())
+    .then((result) => dispatch({ type: "CREATE_POST", payload: result}));
+  }
+}

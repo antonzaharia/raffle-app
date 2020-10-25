@@ -6,6 +6,8 @@ export default function PostsReducer(state = { posts: [], requesting: false }, a
             return {...state, posts: action.payload, requesting: false}
         case "SHOW_POST":
             return {...state, post: action.payload, requesting: false}
+        case "CREATE_POST":
+            return {...state, posts: [...state.posts, action.payload]}
         default:
             return state
     }
