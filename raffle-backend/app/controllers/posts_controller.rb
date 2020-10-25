@@ -49,7 +49,7 @@ class PostsController < ApplicationController
         answer3.content = params[:answer3]
         [post, question, answer1, answer2, answer3].each { |e| e.save }
 
-        render json: post
+        render json: PostSerializer.new(post).to_json
     end
 
     def destroy

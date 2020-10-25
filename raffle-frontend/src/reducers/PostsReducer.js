@@ -9,7 +9,7 @@ export default function PostsReducer(state = { posts: [], requesting: false }, a
         case "CREATE_POST":
             return {...state, posts: [...state.posts, action.payload]}
         case "EDIT_POST":
-            return {...state, post: [action.payload]}
+            return {...state, posts: {...state.posts, post: action.payload}}
         case "DELETE_POST":
             const newPostsState = state.posts.filter( post => post.id !== action.payload)
             return {...state, posts: newPostsState}

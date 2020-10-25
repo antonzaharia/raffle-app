@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
+import { Redirect } from "react-router-dom";
 
 import { newPost } from "../../actions/PostsActions";
+import { makeLink } from "../../helpers/helpers";
 import NewEditForm from "./NewEditForm";
 
 class NewPostForm extends Component {
@@ -17,7 +19,8 @@ class NewPostForm extends Component {
             question: "",
             answer1: "",
             answer2: "",
-            answer3: ""
+            answer3: "",
+            redirect: false
         }
     }
     handleChange = (event) => {
@@ -38,10 +41,14 @@ class NewPostForm extends Component {
             answer3: this.state.answer3
         }
         this.props.newPost(post)
+        this.setState({redirect: true})
     }
     
   render() {
-    return <><NewEditForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} state={this.state}/></>
+    return <>
+    <NewEditForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} state={this.state}/>
+    {this.state.redirect? <Redirect to="/admin" /> : ""}
+    </>
   }
 }
 const mapDispatchToProps = dispatch => ({
