@@ -10,12 +10,10 @@ import { Redirect } from "react-router-dom";
 
 class MainContainer extends Component {
   componentDidMount() {
-    console.log("dd")
     this.props.loadPosts();
   }
   checkUser = () => {
     if(localStorage.admin === "true") {
-      // return <Admin posts={this.props.posts}/>
       return <Redirect to="/admin" />
     } else {
       return <div className="main">

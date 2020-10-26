@@ -16,9 +16,6 @@ import NewPost from "./components/Posts/NewPost";
 import EditPost from "./components/Posts/EditPost";
 
 class App extends Component {
-  componentDidMount() {
-    console.log("app")
-  }
   render() {
     return (
       <div>
@@ -34,7 +31,7 @@ class App extends Component {
                 {localStorage.cart_id ? <CartContainer /> : <Redirect to="/" /> }
               </Route>
               <Route exact path={`/posts/:postId`} render={routerProps => <PostPage {...routerProps} /> } />
-              <Route exact path={"/admin"} ><Admin posts={this.props.posts}/></Route>
+              <Route exact path={"/admin"} ><Admin /></Route>
               <Route path={"/admin/posts/new"}><NewPost /></Route>
               <Route exact path={`/posts/:postId/edit`} render={routerProps => <EditPost {...routerProps} /> } />
             </div>
@@ -47,7 +44,7 @@ class App extends Component {
 }
 const mapStateToProps = (state) => ({
   user: state.users.user,
-  posts: state.posts.posts
+  // posts: state.posts.posts
 });
 
 export default connect(mapStateToProps)(App);

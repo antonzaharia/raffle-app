@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/esm/Card";
+import { connect } from "react-redux";
+import { loadPosts } from "../../actions/PostsActions";
 import AdminPostContainer from "./AdminPostContainer";
 
-export default class Admin extends Component {
+class Admin extends Component {
+  componentDidMount () {
+    this.props.loadPosts();
+  }
   render() {
     return (
       <div className="main">
@@ -12,3 +17,10 @@ export default class Admin extends Component {
     );
   }
 }
+const mapDispatchToProps = (dispatch) => ({
+  loadPosts: () => dispatch(loadPosts()),
+});
+const mapStateToProps = state => ({
+  posts: state.posts.posts
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Admin)
