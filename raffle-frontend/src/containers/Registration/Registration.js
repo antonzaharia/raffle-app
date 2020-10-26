@@ -4,6 +4,7 @@ import LoginForm from "../../components/Registration/LoginForm";
 
 // Bootstrap
 import Button from "react-bootstrap/Button";
+import Collapse from "react-bootstrap/Collapse";
 
 export default class Registration extends Component {
   constructor(props) {

@@ -23,7 +23,7 @@ export default function Ticket({ ticket }) {
           <span>
             Ticket number: {ticket.number} || {showWon()}
           </span>
-          <span className="float-right">
+          <span className="float-right-ticket">
             See post: <Link to={makeLink(ticket.post_id)}>Post</Link>
           </span>
         </Card.Body>

@@ -14,7 +14,7 @@ function AdminPostCard({ post, deletePost, rafflePost }) {
     <Card body>
       <Link to={makeLink(post.id)}>{post.title}</Link>  &nbsp;&nbsp;
       || {post.tickets_number} tickets || &nbsp;&nbsp;
-      Raffle on: || {post.date} ||&nbsp;&nbsp;
+      {post.winner ? <span>Winning Ticket: {post.winner} ||&nbsp;&nbsp;</span> : <span>Raffle on: || {post.date} ||&nbsp;&nbsp;</span>}
       <Link to={makeEditLink(post.id)}><Button variant="warning">Edit</Button>&nbsp;</Link>
       <Button onClick={() => rafflePost(post.id)} variant="success">Raffle</Button>&nbsp;
       <Button onClick={() => deletePost(post.id)} variant ="danger">Delete</Button>
