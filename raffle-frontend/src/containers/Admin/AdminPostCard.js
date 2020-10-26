@@ -6,7 +6,7 @@ import { makeLink } from "../../helpers/helpers";
 import { connect } from 'react-redux'
 import { deletePost, rafflePost } from "../../actions/PostsActions";
 
-function AdminPostCard({ post, deletePost }) {
+function AdminPostCard({ post, deletePost, rafflePost }) {
   const makeEditLink = (id) => {
     return `/posts/${id}/edit`
   }

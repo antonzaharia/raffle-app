@@ -9,6 +9,8 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
   def tickets_b
-    tickets_b = object.tickets.filter { |t| t.number.to_i > 0}
+    tickets_filetered = object.tickets.filter { |t| t.number.to_i > 0}
+    tickets_s = tickets_filetered.map { |t| TicketSerializer.new(t) }
+    tickets_b = tickets_s.reverse
   end
 end

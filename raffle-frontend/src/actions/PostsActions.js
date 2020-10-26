@@ -51,6 +51,6 @@ export function rafflePost(postId) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(postId),
     }).then((resp) => resp.json())
-    .then((result) => dispatch({ type: "RAFFLE", payload: result}));
+    .then((result) => dispatch({ type: "RAFFLE_POST", payload: result}));
   }
 }

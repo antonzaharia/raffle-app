@@ -26,4 +26,19 @@ class TicketsController < ApplicationController
         end
         render json: {tickets: tickets, wrong_answers: wrong_answers, cart: CartSerializer.new(user.carts.last)}
     end
+
+    def update
+        post = Post.find(params[:id])
+        winner_number = rand(1..post.tickets.size)
+        post.tickets.each do |ticket|
+            if ticket.number == winner_number
+                ticket.update(winner: true)
+            else
+                ticket.update(winner: false)
+            end
+        end
+        post.update(winner: winner_number)
+        post.save
+        render json: post
+    end
 end

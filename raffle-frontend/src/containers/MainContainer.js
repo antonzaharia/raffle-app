@@ -10,6 +10,7 @@ import { Redirect } from "react-router-dom";
 
 class MainContainer extends Component {
   componentDidMount() {
+    console.log("dd")
     this.props.loadPosts();
   }
   checkUser = () => {

@@ -16,6 +16,9 @@ import NewPost from "./components/Posts/NewPost";
 import EditPost from "./components/Posts/EditPost";
 
 class App extends Component {
+  componentDidMount() {
+    console.log("app")
+  }
   render() {
     return (
       <div>
