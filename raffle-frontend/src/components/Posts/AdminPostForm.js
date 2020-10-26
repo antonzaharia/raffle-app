@@ -1,6 +1,8 @@
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button" 
 import React, { Component } from 'react'
+import { Redirect } from "react-router-dom";
+import { makeLink } from "../../helpers/helpers";
 
 class AdminPostForm extends Component {
     constructor(props) {
@@ -16,6 +18,7 @@ class AdminPostForm extends Component {
             answer1: props.post ? props.post.answers[0][0].content : "",
             answer2: props.post ? props.post.answers[0][1].content : "",
             answer3: props.post ? props.post.answers[0][2].content : "",
+            redirect: false
         }
     }
     handleChange = (event) => {
@@ -42,10 +45,19 @@ class AdminPostForm extends Component {
             answer3_id: this.props.post ? this.props.post.answers[0][2].id : ""
         }
         this.props.handleSubmit(post)
+        this.setState({ redirect: true })
+    }
+    redirect = () => {
+        if(this.props.post) {
+            return <Redirect to={makeLink(this.props.post.id)} />
+        } else {
+            return <Redirect to="/" />
+        }
     }
     
     render() {
         return (
+            <>
             <Form onSubmit={this.handleSubmit}><br/>
             {console.log(this.props.post)}
                 <Form.Control onChange={this.handleChange} value={this.state.title} name="title" type="text" placeholder="Post Title" /><br/>
@@ -60,6 +72,8 @@ class AdminPostForm extends Component {
                 <Form.Control onChange={this.handleChange} value={this.state.answer3} name="answer3" type="text" placeholder="Enter the True Answer" /><br/>
                 <Button type="submit">Submit</Button>
             </Form>
+            {this.state.redirect ? this.redirect() : ""}
+            </>
         )
     }
 }

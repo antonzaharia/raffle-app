@@ -4,8 +4,6 @@ import { showPost } from '../../actions/PostsActions';
 import AdminPostForm from './AdminPostForm';
 import { editPost } from "../../actions/PostsActions";
 
-
-
 class EditPost extends Component {
     componentDidMount() {
         this.props.showPost(this.props.match.params.postId);
