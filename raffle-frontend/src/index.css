@@ -19,13 +19,7 @@ code {
   color:white;
   transition: 0.3s;
 }
-.reg-form{
-  width:70%;
-}
-.reg-form-container {
-  display: flex;
-  justify-content: center;
-}
+
 .button:hover {
   color: white;
   text-decoration: none; 
@@ -38,9 +32,18 @@ code {
   text-align: right;
 }
 .float-right {
-  float: right;
+  position: fixed;
+  z-index: 1;
 }
-
+.reg-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;;
+}
+.reg-form-index {
+  width: 80%;
+}
 .footer {
   margin-top: 80px;
     padding: 1.2em 0;
