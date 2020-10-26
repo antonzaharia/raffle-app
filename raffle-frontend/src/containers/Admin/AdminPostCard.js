@@ -4,7 +4,7 @@ import Card from "react-bootstrap/esm/Card";
 import { Link } from "react-router-dom";
 import { makeLink } from "../../helpers/helpers";
 import { connect } from 'react-redux'
-import { deletePost } from "../../actions/PostsActions";
+import { deletePost, rafflePost } from "../../actions/PostsActions";
 
 function AdminPostCard({ post, deletePost }) {
   const makeEditLink = (id) => {
@@ -16,13 +16,14 @@ function AdminPostCard({ post, deletePost }) {
       || {post.tickets_number} tickets || &nbsp;&nbsp;
       Raffle on: || {post.date} ||&nbsp;&nbsp;
       <Link to={makeEditLink(post.id)}><Button variant="warning">Edit</Button>&nbsp;</Link>
-      <Link to="/caca"><Button variant="success">Raffle</Button>&nbsp;</Link>
-      <Button onClick={() => deletePost(post.id)}variant ="danger">Delete</Button>
+      <Button onClick={() => rafflePost(post.id)} variant="success">Raffle</Button>&nbsp;
+      <Button onClick={() => deletePost(post.id)} variant ="danger">Delete</Button>
     </Card>
   );
 }
 
 const mapDispatchToProps = dispatch => ({
-  deletePost: id => dispatch(deletePost(id))
+  deletePost: id => dispatch(deletePost(id)),
+  rafflePost: id => dispatch(rafflePost(id))
 })
 export default connect(null, mapDispatchToProps)(AdminPostCard)

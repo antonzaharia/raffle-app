@@ -12,7 +12,7 @@ export default function Ticket({ ticket }) {
     } else if (ticket.winner === "none") {
       return <Badge variant="secondary">Not a Winner</Badge>
     } else {
-      return <h3><Badge variant="success">Won</Badge></h3> 
+      return <h3><Badge variant="success">Winner!</Badge></h3> 
     }
   }
   return (

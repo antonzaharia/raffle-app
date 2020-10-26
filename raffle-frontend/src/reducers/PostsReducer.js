@@ -13,6 +13,9 @@ export default function PostsReducer(state = { posts: [], requesting: false }, a
         case "DELETE_POST":
             const newPostsState = state.posts.filter( post => post.id !== action.payload)
             return {...state, posts: newPostsState}
+        case "RAFFLE_POST":
+            console.log(action.payload)
+            return {...state}
         default:
             return state
     }
