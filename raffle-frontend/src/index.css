@@ -19,6 +19,13 @@ code {
   color:white;
   transition: 0.3s;
 }
+.reg-form{
+  width:70%;
+}
+.reg-form-container {
+  display: flex;
+  justify-content: center;
+}
 .button:hover {
   color: white;
   text-decoration: none; 

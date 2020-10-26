@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signUp } from "../../actions/UserActions";
-import Error from "../Error"
+import Error from "../Error";
 
 // Bootstrap
 import Form from "react-bootstrap/Form";
@@ -45,41 +45,45 @@ class signupForm extends Component {
   render() {
     return (
       <div>
-        <Card style={{ width: "18rem" }} className="float-right">
+        <Card style={{ width: "100%" }} className="float-right">
           <h2 className="center-text">Signup</h2>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Group controlId="formBasicText">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.name}
-                name="name"
-                type="text"
-                placeholder="Enter your name"
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.email}
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.password}
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-              />
-            </Form.Group>
-            <Button type="submit" className="center-text">
-              Done <FontAwesomeIcon icon={faArrowRight} />
-            </Button>
-          </Form>
-          {this.props.requesting ? <FontAwesomeIcon icon={faSpinner} className="spinner" /> : null }
+          <div className="reg-form-container">
+            <Form className="reg-form" onSubmit={this.handleSubmit}>
+              <Form.Group controlId="formBasicText">
+                <Form.Control
+                  onChange={this.handleChange}
+                  value={this.state.name}
+                  name="name"
+                  type="text"
+                  placeholder="Enter your name"
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Control
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email"
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Control
+                  onChange={this.handleChange}
+                  value={this.state.password}
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                />
+              </Form.Group>
+              <Button type="submit" className="center-text">
+                Done <FontAwesomeIcon icon={faArrowRight} />
+              </Button>
+            </Form>
+          </div>
+          {this.props.requesting ? (
+            <FontAwesomeIcon icon={faSpinner} className="spinner" />
+          ) : null}
           <Error errors={this.props.errors} />
         </Card>
       </div>
@@ -89,9 +93,9 @@ class signupForm extends Component {
 const mapDispatchToProps = (dispatch) => ({
   signUp: (user) => dispatch(signUp(user)),
 });
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   requesting: state.requesting,
-  errors: state.errors
-})
+  errors: state.errors,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(signupForm);
