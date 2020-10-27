@@ -1,13 +1,13 @@
 # README
 
 
-# RAFFLE
+# RAFFLE-APP
 Welcome !
 
 This is a web app created in using Ruby on Rails as backend and React as frontend.
 
 # Overview
-This is a web app that provides user a number of contests where any user can participate.
+This is a web app that provides a number of contests where any user can participate.
 Any user can "purchase" a limit of 30 tickets per post.
 After a user buys a ticket will need to wait until the admin makes the raffle and gives the post a winning number.
 
@@ -47,6 +47,11 @@ Files information
 
 # Usage
 After installation visit the Homepage.
+Accounts:
+Admin {email: "admin@admin.com", password: "admin"}
+User {email: "test@test.com", password: "test"}
+User {email: "zaharia@example.com", password: "zaharia"}
+
 If 'rake db:seed' was used you can login using one the provided accounts or you can sign up.
 
 On the main page, if any of the posts have the raffle date today will show in a big slider. Also all the posts will be showed in the bottom of the page.
