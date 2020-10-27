@@ -6,7 +6,7 @@ export default function FormInput({data, handleChange, value}) {
         return `Enter your ${data}`
     }
     return (
-        <Form.Group controlId="formBasicText" className="reg-form-index">
+        <Form.Group className="reg-form-index" name={data}>
             <Form.Control
                 onChange={handleChange}
                 value={value}

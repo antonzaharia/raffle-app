@@ -53,6 +53,9 @@ class PostsController < ApplicationController
     end
 
     def destroy
+        post = Post.find(params[:id])
+        post.tickets.destroy_all
+
         Post.destroy_by(id: params[:id])
 
         render json: params[:id]
