@@ -36,17 +36,19 @@ class signupForm extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    let user = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-    };
-    this.props.signUp(user);
-    this.setState({
-      name: "",
-      email: "",
-      password: "",
-    });
+    if(!this.state.passwordLengthCheck) {
+      let user = {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+      };
+      this.props.signUp(user);
+      this.setState({
+        name: "",
+        email: "",
+        password: "",
+      });
+    }
   };
 
   render() {
@@ -70,7 +72,7 @@ class signupForm extends Component {
 
           {/* Spinner element while accessing backend */}
           {this.props.requesting ? <FontAwesomeIcon icon={faSpinner} className="spinner" /> : null }
-          
+
           <Error errors={this.props.errors} />
         </Card>
       </div>

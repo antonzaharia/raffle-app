@@ -51,8 +51,10 @@ class loginForm extends Component {
               Done <FontAwesomeIcon icon={faArrowRight} />
             </Button>
           </Form>
+
+          {/* Spinner element while accessing backend */}
           {this.props.requesting ? <FontAwesomeIcon icon={faSpinner} className="spinner" /> : null }
-          {console.log(this.props.errors)}
+
           <Error errors={this.props.errors} />
         </Card>
       </div>
