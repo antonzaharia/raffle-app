@@ -1,9 +1,9 @@
 import React from 'react'
-import Post from './PostCard'
+import PostCard from './PostCard'
 
 export default function PostsList({ posts }) {
     const renderPosts = () => {
-        return posts.map((post) => <Post key={post.id} post={post} />);
+        return posts.map((post) => <PostCard key={post.id} post={post} />);
       };
     return (
     <div className="flex-wrap">
