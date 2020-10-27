@@ -23,6 +23,8 @@ export default function UserReducer(state = {user: null, requesting: false, erro
       return {...state, user: ""}
     case "LOAD_USER":
       return {...state, user: action.payload }
+    case "REMOVE_ERRORS":
+      return {...state, errors: false}
     default:
       return state;
   }

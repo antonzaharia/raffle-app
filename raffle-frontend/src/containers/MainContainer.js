@@ -5,7 +5,6 @@ import PostList from "../components/Posts/PostsList"
 import Loading from "../components/Loading"
 import DateCheck from "../components/Raffle/DateCheck";
 import Card from "react-bootstrap/esm/Card";
-import Admin from "./Admin/Admin";
 import { Redirect } from "react-router-dom";
 
 class MainContainer extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login } from "../../actions/UserActions";
+import { login, removeErrors } from "../../actions/UserActions";
 import Error from "../Error"
 
 // Bootstrap
@@ -60,11 +60,12 @@ class loginForm extends Component {
                 placeholder="Enter your password"
               />
             </Form.Group>
-            <Button type="submit" className="center-text"  className="reg-form-index">
+            <Button type="submit" className="center-text reg-form-index">
               Done <FontAwesomeIcon icon={faArrowRight} />
             </Button>
           </Form>
           {this.props.requesting ? <FontAwesomeIcon icon={faSpinner} className="spinner" /> : null }
+          {console.log(this.props.errors)}
           <Error errors={this.props.errors} />
         </Card>
       </div>
@@ -75,7 +76,7 @@ const mapDispatchToProps = (dispatch) => ({
   login: (user) => dispatch(login(user)),
 });
 const mapStateToProps = (state, ownProps) => ({
-  requesting: state.requesting,
-  errors: state.errors
+  requesting: state.users.requesting,
+  errors: state.users.errors
 });
 export default connect(mapStateToProps, mapDispatchToProps)(loginForm);

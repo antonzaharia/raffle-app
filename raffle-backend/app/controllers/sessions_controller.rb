@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])
             render json: user
         else
-            render json: {errors: {login: "Failed."}}
+            render json: {errors: {Invalid: "Email or Password"}}
         end
     end
 end

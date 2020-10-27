@@ -66,3 +66,9 @@ export function loadUser(id) {
       .then((user) => dispatch({ type: "LOAD_USER", payload: user }));
   };
 }
+
+export function removeErrors() {
+  return (dispatch) => {
+    dispatch({ type: "REMOVE_ERRORS" })
+  }
+}

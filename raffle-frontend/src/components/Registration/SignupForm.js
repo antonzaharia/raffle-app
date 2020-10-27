@@ -75,7 +75,7 @@ class signupForm extends Component {
                 placeholder="Enter your password"
               />
             </Form.Group>
-            <Button type="submit" className="center-text" className="reg-form-index">
+            <Button type="submit" className="center-text reg-form-index">
               Done <FontAwesomeIcon icon={faArrowRight} />
             </Button>
           </Form>
@@ -90,8 +90,8 @@ const mapDispatchToProps = (dispatch) => ({
   signUp: (user) => dispatch(signUp(user)),
 });
 const mapStateToProps = state => ({
-  requesting: state.requesting,
-  errors: state.errors
+  requesting: state.users.requesting,
+  errors: state.users.errors
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(signupForm);

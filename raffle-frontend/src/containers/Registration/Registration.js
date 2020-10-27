@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux'
 import SignupForm from "../../components/Registration/SignupForm";
 import LoginForm from "../../components/Registration/LoginForm";
 
 // Bootstrap
 import Button from "react-bootstrap/Button";
-import Collapse from "react-bootstrap/Collapse";
+import { removeErrors } from "../../actions/UserActions";
 
-export default class Registration extends Component {
+class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +16,7 @@ export default class Registration extends Component {
     };
   }
   closeForm = () => {
+    this.props.removeErrors()
     this.setState({
         loginForm: "Login",
         signupForm: "Signup",
@@ -30,6 +32,7 @@ export default class Registration extends Component {
   };
   showLogin = () => {
     if (this.state.loginForm === "Login") {
+      this.props.removeErrors()
       this.setState({
         loginForm: "X",
         signupForm: "Signup",
@@ -40,6 +43,7 @@ export default class Registration extends Component {
   };
   showSignup = () => {
     if (this.state.signupForm === "Signup") {
+        this.props.removeErrors()
         this.setState({
           loginForm: "Login",
           signupForm: "X",
@@ -58,3 +62,7 @@ export default class Registration extends Component {
     );
   }
 }
+const mapDispatchToProps = dispatch => ({
+  removeErrors: () => dispatch(removeErrors())
+})
+export default connect(null, mapDispatchToProps)(Registration)
