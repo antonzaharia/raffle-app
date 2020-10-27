@@ -12,6 +12,7 @@ import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import FormInput from "./FormInput";
 
 class signupForm extends Component {
   constructor(props) {
@@ -20,9 +21,15 @@ class signupForm extends Component {
       name: "",
       email: "",
       password: "",
+      passwordLengthCheck: false
     };
   }
   handleChange = (event) => {
+    if(this.state.password.length <= 4) {
+      this.setState({passwordLengthCheck: true})
+    } else {
+      this.setState({passwordLengthCheck: false})
+    }
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -48,38 +55,22 @@ class signupForm extends Component {
         <Card style={{ width: "100%" }} className="float-right">
           <h2 className="center-text">Signup</h2>
           <Form onSubmit={this.handleSubmit} className="reg-form">
-            <Form.Group controlId="formBasicText" className="reg-form-index">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.name}
-                name="name"
-                type="text"
-                placeholder="Enter your name"
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail" className="reg-form-index">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.email}
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword" className="reg-form-index">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.password}
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-              />
-            </Form.Group>
+
+            <FormInput data="name" handleChange={this.handleChange} value={this.state.name}/>
+            <FormInput data="email" handleChange={this.handleChange} value={this.state.email}/>
+            <FormInput data="password" handleChange={this.handleChange} value={this.state.password}/>
+
+            {/* Checking password Length */}
+            {this.state.passwordLengthCheck ? <p className="center-text red">The password must contain at least 6 characters</p> : ""}
+
             <Button type="submit" className="center-text reg-form-index">
               Done <FontAwesomeIcon icon={faArrowRight} />
             </Button>
           </Form>
+
+          {/* Spinner element while accessing backend */}
           {this.props.requesting ? <FontAwesomeIcon icon={faSpinner} className="spinner" /> : null }
+          
           <Error errors={this.props.errors} />
         </Card>
       </div>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login, removeErrors } from "../../actions/UserActions";
+import { login } from "../../actions/UserActions";
 import Error from "../Error"
+import FormInput from "./FormInput"
 
 // Bootstrap
 import Form from "react-bootstrap/Form";
@@ -42,24 +43,10 @@ class loginForm extends Component {
         <Card style={{ width: "100%" }} className="float-right">
           <h2 className="center-text">Login</h2>
           <Form onSubmit={this.handleSubmit} className="reg-form">
-            <Form.Group controlId="formBasicEmail" className="reg-form-index">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.email}
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword" className="reg-form-index">
-              <Form.Control
-                onChange={this.handleChange}
-                value={this.state.password}
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-              />
-            </Form.Group>
+
+            <FormInput data="email" handleChange={this.handleChange} value={this.state.email}/>
+            <FormInput data="password" handleChange={this.handleChange} value={this.state.password}/>
+
             <Button type="submit" className="center-text reg-form-index">
               Done <FontAwesomeIcon icon={faArrowRight} />
             </Button>
