@@ -48,21 +48,21 @@ Files information
 # Usage
 After installation visit the Homepage.
 Accounts:
-Admin {email: "admin@admin.com", password: "admin"}
-User {email: "test@test.com", password: "test"}
-User {email: "zaharia@example.com", password: "zaharia"}
+### Admin {email: "admin@admin.com", password: "admin"}
+### User {email: "test@test.com", password: "test"}
+### User {email: "zaharia@example.com", password: "zaharia"}
 
 If 'rake db:seed' was used you can login using one the provided accounts or you can sign up.
 
 On the main page, if any of the posts have the raffle date today will show in a big slider. Also all the posts will be showed in the bottom of the page.
-
+### |
 Check each post and decide in which one you want to join. 
 Answer the question, select how many tickets and press ADD to Cart. Then you will be redirected to the cart page.
 Now you can either change the quantity of the tickets or checkout.
-
+### |
 After checking out you can view the account page that can be accessed by pressing on the name of the user.
 Account page can be used to check the status of a raffle
-
+### |
 Admin interface can be used to add a new post, edit an existing post of deleting a post.
 Raffle will be done by pressing the "Raffle" button form the admin interface.
 
