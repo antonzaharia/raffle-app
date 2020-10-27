@@ -29,20 +29,20 @@ In your terminal, run 'npm start' to start the npm server.
 Visit 'http://localhost:3000' to see the homepage.
 
 Files information
-'/raffle-backend/db/migrate' has all the migrations files
-'/raffle-backend/config' has the setup environment
-'/raffle-backend/app' has the ruby api app
-'/raffle-backend/app/controllers' has the controllers files
-'/raffle-backend/app/models' has the ruby models
-'/raffle-backend/Gemfile' has all the required gems to run this project
+### '/raffle-backend/db/migrate' has all the migrations files
+### '/raffle-backend/config' has the setup environment
+### '/raffle-backend/app' has the ruby api app
+### '/raffle-backend/app/controllers' has the controllers files
+### '/raffle-backend/app/models' has the ruby models
+### '/raffle-backend/Gemfile' has all the required gems to run this project
 
 
-'/raffle-frontend' has the react app
-'/raffle-frontend/actions' has the Redux action functions files
-'/raffle-frontend/components' has the the parts of the components
-'/raffle-frontend/containers' has the containers of the app
-'/raffle-frontend/helpers' has the helpers functions
-'/raffle-frontend/reducers' has the Redux reducers files
+### '/raffle-frontend' has the react app
+### '/raffle-frontend/actions' has the Redux action functions files
+### '/raffle-frontend/components' has the the parts of the components
+### '/raffle-frontend/containers' has the containers of the app
+### '/raffle-frontend/helpers' has the helpers functions
+### '/raffle-frontend/reducers' has the Redux reducers files
 
 
 # Usage
