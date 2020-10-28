@@ -7,6 +7,13 @@ Welcome !
 This is a web app created in using Ruby on Rails as backend and React as frontend.
 
 # Overview
+
+Demo video: 
+https://www.youtube.com/watch?v=ywZg1YtcpIo&ab_channel=AntonZaharia
+
+Blog post: 
+https://antonzaharia.github.io/final_project_-_react_redux_and_rails
+
 This is a web app that provides a number of contests where any user can participate.
 Any user can "purchase" a limit of 30 tickets per post.
 After a user buys a ticket will need to wait until the admin makes the raffle and gives the post a winning number.
