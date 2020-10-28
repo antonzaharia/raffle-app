@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import { connect } from 'react-redux'
 import CartItem from "../Cart/CartItem";
 
@@ -8,8 +7,6 @@ import Button from "react-bootstrap/Button"
 import Message from '../Message';
 
 function CartForm({cart, checkout, message}) {
-  
-  const [redirect, setRedirect] = useState(0)
 
     const renderItems = () => {
         if (cart && cart.cart_items_info.length > 0 && localStorage.cart_id) {
@@ -29,15 +26,14 @@ function CartForm({cart, checkout, message}) {
             quantities: [...newQuantities]
         }
         checkout(data)
-        setRedirect(1)
       }
     return (
-        <Form className="right-text" onSubmit={handleSubmit}>
+      <Form className="right-text" onSubmit={handleSubmit}>
         {renderItems()}
         <br />
         <hr />
         {cart && cart.cart_items_info.length > 0 ? <Button type="submit" variant="success">CheckOut</Button> : ""}
-        {redirect === 1 ? <Message data={message} /> : ""}
+        <Message data={message} />
       </Form>
     )
 }
