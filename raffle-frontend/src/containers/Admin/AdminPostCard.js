@@ -1,18 +1,23 @@
 import React from "react";
-import Button from "react-bootstrap/esm/Button";
-import Card from "react-bootstrap/esm/Card";
-import Badge from "react-bootstrap/Badge"
+
 import { Link } from "react-router-dom";
-import { makeLink } from "../../helpers/helpers";
 import { connect } from 'react-redux'
 import { deletePost, rafflePost } from "../../actions/PostsActions";
 
+// Helpers
+import { makeLink } from "../../helpers/helpers";
+
+// Bootstrap
+import Button from "react-bootstrap/esm/Button";
+import Card from "react-bootstrap/esm/Card";
+import Badge from "react-bootstrap/Badge"
+
 function AdminPostCard({ post, deletePost, rafflePost }) {
+  // Build a RESTful edit link
   const makeEditLink = (id) => {
     return `/posts/${id}/edit`
   }
   return (
-    
     <Card body>
       <Link to={makeLink(post.id)}>{post.title}</Link>  &nbsp;&nbsp;
       || {post.tickets_number} tickets || &nbsp;&nbsp;

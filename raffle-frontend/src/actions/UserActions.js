@@ -1,3 +1,5 @@
+import { setLocalStorage, removeLocalStorage } from '../helpers/helpers'
+
 export function signUp(user) {
   return (dispatch) => {
     dispatch({ type: "LOGGING_IN" });
@@ -11,10 +13,7 @@ export function signUp(user) {
         if ("errors" in result) {
           dispatch({ type: "FAILED", payload: result.errors });
         } else {
-          localStorage.setItem("id", result.id);
-          localStorage.setItem("name", result.name);
-          localStorage.setItem("email", result.email);
-          localStorage.setItem("cart_id", result.cart_id);
+          setLocalStorage(result)
           dispatch({
             type: "SIGNUP",
             payload: result,
@@ -36,10 +35,7 @@ export function login(user) {
         if ("errors" in result) {
           dispatch({ type: "FAILED", payload: result.errors });
         } else {
-          localStorage.setItem("id", result.id);
-          localStorage.setItem("name", result.name);
-          localStorage.setItem("email", result.email);
-          localStorage.setItem("cart_id", result.cart_id);
+          setLocalStorage(result)
           localStorage.setItem("admin", result.admin);
           dispatch({
             type: "LOGIN",
@@ -50,10 +46,7 @@ export function login(user) {
   };
 }
 export function logout() {
-  localStorage.removeItem("name", localStorage.name);
-  localStorage.removeItem("email", localStorage.name);
-  localStorage.removeItem("id", localStorage.name);
-  localStorage.removeItem("cart_id", localStorage.name);
+  removeLocalStorage()
   localStorage.removeItem("admin", localStorage.name)
   return { type: "LOGOUT" };
 }
