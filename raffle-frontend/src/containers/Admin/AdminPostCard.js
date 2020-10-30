@@ -12,6 +12,7 @@ import Button from "react-bootstrap/esm/Button";
 import Card from "react-bootstrap/esm/Card";
 import Badge from "react-bootstrap/Badge"
 
+// Rendered for every post in admin dashboard
 function AdminPostCard({ post, deletePost, rafflePost }) {
   // Build a RESTful edit link
   const makeEditLink = (id) => {

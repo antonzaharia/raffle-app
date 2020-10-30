@@ -11,6 +11,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 
+// Rendered on every post show page
 class PostForm extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,7 @@ class PostForm extends Component {
   }
   renderRedirect = () => (this.state.formSent ? <Redirect to="/cart" /> : "");
 
+  // Triggered when a user is adding a new item in the cart
   handleSubmit = (event) => {
     event.preventDefault();
     const answers = [event.target[0], event.target[1], event.target[2]];

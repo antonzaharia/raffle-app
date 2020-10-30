@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+// Helpers
 import { makeLink } from "../../helpers/helpers";
 
-import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
+// Bootstrap
 import Badge from "react-bootstrap/Badge"
+import Card from "react-bootstrap/Card";
 
+// Rendered in Account page for every ticket
 export default function Ticket({ ticket }) {
+  //Showing the raffle results
   const showWon = () => {
     if(ticket.winner) {
       return <h3><Badge variant="success">Winner!</Badge></h3> 
@@ -17,12 +21,9 @@ export default function Ticket({ ticket }) {
   }
   return (
     <div>
-      {console.log(ticket)}
       <Card>
         <Card.Body>
-          <span>
-            Ticket number: {ticket.number} || {showWon()}
-          </span>
+          <span> Ticket number: {ticket.number} || {showWon()}</span>
           <span className="float-right-ticket">
             See post: <Link to={makeLink(ticket.post_id)}>Post</Link>
           </span>

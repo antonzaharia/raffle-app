@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { loadUser } from '../actions/UserActions'
 
 import { Link } from 'react-router-dom'
 
 import TicketContainer from './TicketsContainer'
-import { loadUser } from '../actions/UserActions'
 import Loading from '../components/Loading'
 
 

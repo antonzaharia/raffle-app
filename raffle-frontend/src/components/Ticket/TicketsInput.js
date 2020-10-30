@@ -1,15 +1,15 @@
 import React, { Component } from "react";
+
+// Bootstrap
 import Form from "react-bootstrap/Form";
 
+// Rendered in post show page and in the cart show page for each cart_item
 export default class TicketsInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
       number: this.props.value ? this.props.value : 1
     };
-  }
-  handleChange = event => {
-    
   }
 
   render() {

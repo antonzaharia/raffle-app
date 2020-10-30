@@ -1,14 +1,16 @@
 import React from 'react'
-import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom'
 import { logout } from '../../actions/UserActions'
 import { connect } from 'react-redux'
+
+// Bootstrap
+import Button from "react-bootstrap/Button";
 
 //FontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-
+// Renders only if user is logged in
 function LoggedIn({logout}) {
     const handleLogout = () => {
         logout()

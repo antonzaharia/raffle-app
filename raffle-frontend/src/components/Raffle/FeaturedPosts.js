@@ -1,10 +1,12 @@
 import React from "react";
 import { makeLink } from '../../helpers/helpers'
-
-import Carousel from "react-bootstrap/Carousel";
-import Button from "react-bootstrap/esm/Button";
 import { Link } from "react-router-dom";
 
+// Bootstrap
+import Carousel from "react-bootstrap/Carousel";
+import Button from "react-bootstrap/esm/Button";
+
+// Rendering the slider from the homepage
 export default function FeaturedPosts({ posts }) {
   const loadPost = () => {
     return posts.map((post) => (

@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loadCart, checkout } from "../actions/CartActions";
 import CartForm from "../components/Cart/CartForm"
+import Loading from "../components/Loading";
 
+// Bootstrap
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import Loading from "../components/Loading";
 
 
 class CartContainer extends Component {
   componentDidMount() {
+    // Setting Redux store from localStorage to load the cart
     if (localStorage.cart_id) {
       this.props.loadCart(localStorage.cart_id);
     }

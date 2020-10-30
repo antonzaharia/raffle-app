@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+
 import { connect } from "react-redux"
 import { deleteCartItem } from "../../actions/CartActions"
 import TicketsInput from "../../components/Ticket/TicketsInput"
 
+//Bootstrap
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 
@@ -20,7 +22,6 @@ class CartItem extends Component {
           <Button className="cart-delete-btn" variant="danger" onClick={ () => this.props.deleteCartItem(this.props.data.id) }>Delete</Button>
           <div className="cart-input"><TicketsInput value={parseInt(this.props.data.quantity)}/></div>
         </div>
-        
       </ListGroup.Item>
     );
   }

@@ -7,6 +7,7 @@ import LoginForm from "../../components/Registration/LoginForm";
 import Button from "react-bootstrap/Button";
 import { removeErrors } from "../../actions/UserActions";
 
+// Changing between Login and Signup forms, loaded only if user is logged out
 class Registration extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +16,7 @@ class Registration extends Component {
       signupForm: "Signup",
     };
   }
+  // Closing any form
   closeForm = () => {
     this.props.removeErrors()
     this.setState({
@@ -22,7 +24,7 @@ class Registration extends Component {
         signupForm: "Signup",
       });
   }
-
+  // Loading a form depending on component state
   loadForm = () => {
     if (this.state.loginForm === "X") {
       return <LoginForm />;
@@ -30,6 +32,7 @@ class Registration extends Component {
       return <SignupForm />;
     }
   };
+  // Triggered on press of Login button
   showLogin = () => {
     if (this.state.loginForm === "Login") {
       this.props.removeErrors()
@@ -41,6 +44,7 @@ class Registration extends Component {
       this.closeForm()
     }
   };
+  // Triggered on press of Signup button
   showSignup = () => {
     if (this.state.signupForm === "Signup") {
         this.props.removeErrors()

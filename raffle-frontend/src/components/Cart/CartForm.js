@@ -1,13 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import CartItem from "../Cart/CartItem";
 
+//Bootstrap
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Message from '../Message';
 
 function CartForm({cart, checkout, message}) {
-
+    
+  // Checking if there are any cart items for the current cart
     const renderItems = () => {
         if (cart && cart.cart_items_info.length > 0 && localStorage.cart_id) {
           return cart.cart_items_info
@@ -16,6 +19,7 @@ function CartForm({cart, checkout, message}) {
           return <div className="center-text"><br />Cart empty.</div>;
         }
       };
+  // Triggered when pressing the Checkout button.
     const handleSubmit = (event) => {
         event.preventDefault()
         const getQuantities = Object.keys(event.target).map( t => event.target[t].type === "number" ? parseInt(event.target[t].value) : "")

@@ -8,6 +8,7 @@ import PostForm from "./PostForm";
 //Bootstrap
 import Card from "react-bootstrap/Card";
 
+// Post show page
 class PostPage extends Component {
   componentDidMount() {
     this.props.showPost(this.props.match.params.postId);

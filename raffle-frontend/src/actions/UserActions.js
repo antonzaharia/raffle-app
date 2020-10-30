@@ -45,12 +45,13 @@ export function login(user) {
       });
   };
 }
+
 export function logout() {
   removeLocalStorage()
   localStorage.removeItem("admin", localStorage.name)
   return { type: "LOGOUT" };
 }
-
+// Loading user on /account page
 export function loadUser(id) {
   return (dispatch) => {
     dispatch({ type: "START_LOADING_USER" });
@@ -59,7 +60,7 @@ export function loadUser(id) {
       .then((user) => dispatch({ type: "LOAD_USER", payload: user }));
   };
 }
-
+// Remove errors from login/signup form
 export function removeErrors() {
   return (dispatch) => {
     dispatch({ type: "REMOVE_ERRORS" })

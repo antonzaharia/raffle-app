@@ -1,8 +1,12 @@
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button" 
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom";
+
+//Helpers
 import { makeLink } from "../../helpers/helpers";
+
+//Bootstrap
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button" 
 
 class AdminPostForm extends Component {
     constructor(props) {
@@ -25,6 +29,7 @@ class AdminPostForm extends Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
+    // Triggered when admin submits an edit or and create post
     handleSubmit = (event) => {
         event.preventDefault()
         const post = {
@@ -59,7 +64,6 @@ class AdminPostForm extends Component {
         return (
             <>
             <Form onSubmit={this.handleSubmit}><br/>
-            {console.log(this.props.post)}
                 <Form.Control onChange={this.handleChange} value={this.state.title} name="title" type="text" placeholder="Post Title" /><br/>
                 <Form.Control onChange={this.handleChange} value={this.state.description} name="description" type="textarea" placeholder="Post Description" /><br/>
                 <Form.Control onChange={this.handleChange} value={this.state.max_tickets} name="max_tickets" type="number" placeholder="Max Tickets" /><br/>

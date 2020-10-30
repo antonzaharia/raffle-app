@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { newPost } from "../../actions/PostsActions";
 import AdminPostForm from "./AdminPostForm";
 
+// Rendering AdminPostForm *without post props
 class NewPostForm extends Component { 
 
   render() {

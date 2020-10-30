@@ -1,6 +1,7 @@
 import React from 'react'
 import Ticket from '../components/Ticket/Ticket'
 
+// Mapping through user tickets
 export default function TicketsContainer({tickets}) {
     const renderTickets = () => {
         if(tickets.length > 0) {

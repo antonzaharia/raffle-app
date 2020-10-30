@@ -1,8 +1,11 @@
 import React from 'react'
-import Button from 'react-bootstrap/esm/Button'
 import { Link } from 'react-router-dom'
 import AdminPostCard from './AdminPostCard'
 
+// Bootstrap
+import Button from 'react-bootstrap/esm/Button'
+
+// Mapping through posts collection and renders create post button
 export default function AdminPostContainer({posts}) {
     return (
         <div className="center-text">

@@ -12,11 +12,8 @@ export default function Header(props) {
   };
   return (
     <div className="header">
-      <a href="/" className="logo">
-        Raffle
-      </a>
+      <a href="/" className="logo">Raffle</a>
       {loggedIn()}
-      
     </div>
   );
 }

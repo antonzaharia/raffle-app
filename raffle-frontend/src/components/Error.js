@@ -1,4 +1,6 @@
 import React from "react";
+
+// Bootstrap
 import Alert from "react-bootstrap/Alert";
 
 export default function Error({errors}) {

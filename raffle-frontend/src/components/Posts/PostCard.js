@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { makeLink } from "../../helpers/helpers";
+
+//Bootstrap
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 
+// Rendering for each post on home page
 export default function Post({ post }) {
   return (
     <div>
@@ -14,11 +18,7 @@ export default function Post({ post }) {
         />
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
-          <Link key={post.id} to={`/posts/${post.id}`}>
-            <Button variant="success" block>
-              ENTER NOW
-            </Button>
-          </Link>
+          <Link key={post.id} to={makeLink(post.id)}><Button variant="success" block>ENTER NOW</Button></Link>
         </Card.Body>
       </Card>
     </div>
