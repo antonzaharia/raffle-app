@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :carts
-  resources :cart_items
-  resources :tickets
-  resources :answers
-  resources :questions
+  resources :carts, only: [:show, :create]
+  resources :cart_items, only: [:destroy]
+  resources :tickets, only: [:create, :update]
   resources :posts
   resources :users, only: [:create, :show]
   resources :sessions, only: [:create]
