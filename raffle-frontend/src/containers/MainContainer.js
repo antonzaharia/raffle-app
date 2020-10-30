@@ -21,6 +21,8 @@ class MainContainer extends Component {
       <br /><hr /><br />
       <Card body className="center-text bold-text" bg="danger" text="light">CURRENT COMPETITIONS</Card>
       <br /><hr /><br />
+      
+      {this.props.requesting ? <Loading /> : ""}
       <PostList posts={this.props.posts}/>
     </div>;
     }
@@ -37,7 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => ({
   user: state.users.user,
   posts: state.posts.posts,
-  requesting: state.requesting
+  requesting: state.posts.requesting
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

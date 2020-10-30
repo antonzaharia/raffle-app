@@ -5,6 +5,7 @@ import CartForm from "../components/Cart/CartForm"
 
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Loading from "../components/Loading";
 
 
 class CartContainer extends Component {
@@ -17,7 +18,7 @@ class CartContainer extends Component {
   render() {
     return (
       <Card style={{ width: "100%" }} variant="primary">
-        {this.props.requesting ? <p>Loading cart...</p> : ""}
+        {this.props.requesting ? <Loading /> : ""}
         <ListGroup variant="flush">
           <CartForm cart={this.props.cart} checkout={this.props.checkout}/>
         </ListGroup>

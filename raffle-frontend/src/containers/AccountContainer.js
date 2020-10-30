@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import TicketContainer from './TicketsContainer'
 import { loadUser } from '../actions/UserActions'
+import Loading from '../components/Loading'
 
 
 class AccountContainer extends Component {
@@ -19,7 +20,7 @@ class AccountContainer extends Component {
                 <p>{localStorage.name}</p>
                 <p>{localStorage.email}</p>
                 <hr/>
-                {this.props.user && this.props.user.tickets_b ? <TicketContainer tickets={this.props.user.tickets_b}/> : "Loading..."}
+                {this.props.user && this.props.user.tickets_b ? <TicketContainer tickets={this.props.user.tickets_b}/> : <Loading />}
                 <hr/>
                 <Link to="/" >Back</Link>
             </div>
