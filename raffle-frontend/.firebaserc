@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "raffle-frontend",
+    "raffle": "raffle-frontend"
+  },
+  "targets": {
+    "raffle-frontend": {
+      "hosting": {
+        "raffle-frontend": [
+          "raffle-frontend"
+        ]
+      }
+    }
+  }
+}

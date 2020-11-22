@@ -1,7 +1,8 @@
+URL = "https://sleepy-cliffs-09142.herokuapp.com/"
 export function loadPosts() {
   return (dispatch) => {
     dispatch({ type: "LOADING_POSTS" });
-    fetch("http://localhost:3001/posts")
+    fetch(`${URL}posts`)
       .then((resp) => resp.json())
       .then((posts) => dispatch({ type: "LOADED_POSTS", payload: posts }));
   };
@@ -9,14 +10,14 @@ export function loadPosts() {
 export function showPost(postId) {
   return (dispatch) => {
     dispatch({ type: "LOADING_POSTS" });
-    fetch(`http://localhost:3001/posts/${postId}`)
+    fetch(`${URL}posts/${postId}`)
       .then((resp) => resp.json())
       .then((post) => dispatch({ type: "SHOW_POST", payload: post }));
   };
 }
 export function newPost(post) {
   return (dispatch) => {
-    fetch("http://localhost:3001/posts", {
+    fetch(`${URL}posts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),
@@ -26,7 +27,7 @@ export function newPost(post) {
 }
 export function editPost(post) {
   return (dispatch) => {
-    fetch(`http://localhost:3001/posts/${post.id}`, {
+    fetch(`${URL}${post.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),
@@ -36,7 +37,7 @@ export function editPost(post) {
 }
 export function deletePost(id) {
   return (dispatch) => {
-    fetch(`http://localhost:3001/posts/${id}`, {
+    fetch(`${URL}posts/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(id),
@@ -46,7 +47,7 @@ export function deletePost(id) {
 }
 export function rafflePost(postId) {
   return (dispatch) => {
-    fetch(`http://localhost:3001/tickets/${postId}`, {
+    fetch(`${URL}tickets/${postId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(postId),

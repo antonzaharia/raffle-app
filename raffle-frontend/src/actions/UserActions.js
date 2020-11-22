@@ -3,7 +3,7 @@ import { setLocalStorage, removeLocalStorage } from '../helpers/helpers'
 export function signUp(user) {
   return (dispatch) => {
     dispatch({ type: "LOGGING_IN" });
-    fetch("http://localhost:3001/users", {
+    fetch("https://sleepy-cliffs-09142.herokuapp.com/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -25,7 +25,7 @@ export function signUp(user) {
 export function login(user) {
   return (dispatch) => {
     dispatch({ type: "LOGGING_IN" });
-    fetch("http://localhost:3001/sessions", {
+    fetch("https://sleepy-cliffs-09142.herokuapp.com/sessions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -55,7 +55,7 @@ export function logout() {
 export function loadUser(id) {
   return (dispatch) => {
     dispatch({ type: "START_LOADING_USER" });
-    fetch(`http://localhost:3001/users/${id}`)
+    fetch(`https://sleepy-cliffs-09142.herokuapp.com/users/${id}`)
       .then((resp) => resp.json())
       .then((user) => dispatch({ type: "LOAD_USER", payload: user }));
   };

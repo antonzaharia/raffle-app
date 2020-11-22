@@ -1,7 +1,7 @@
 export function newCartItem(data) {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
-    fetch("http://localhost:3001/carts", {
+    fetch("https://sleepy-cliffs-09142.herokuapp.com/carts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -22,7 +22,7 @@ export function newCartItem(data) {
 export function loadCart(cartId) {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
-    fetch(`http://localhost:3001/carts/${cartId}`)
+    fetch(`https://sleepy-cliffs-09142.herokuapp.com/carts/${cartId}`)
       .then((resp) => resp.json())
       .then((result) =>
         dispatch({
@@ -35,7 +35,7 @@ export function loadCart(cartId) {
 export function deleteCartItem(id) {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
-    fetch(`http://localhost:3001/cart_items/${id}`, {
+    fetch(`https://sleepy-cliffs-09142.herokuapp.com/cart_items/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(id),
@@ -52,7 +52,7 @@ export function deleteCartItem(id) {
 export function checkout(data) {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
-    fetch("http://localhost:3001/tickets", {
+    fetch("https://sleepy-cliffs-09142.herokuapp.com/tickets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
