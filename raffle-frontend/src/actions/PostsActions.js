@@ -1,4 +1,4 @@
-URL = "https://sleepy-cliffs-09142.herokuapp.com/"
+const URL = "https://sleepy-cliffs-09142.herokuapp.com/"
 export function loadPosts() {
   return (dispatch) => {
     dispatch({ type: "LOADING_POSTS" });
@@ -27,7 +27,7 @@ export function newPost(post) {
 }
 export function editPost(post) {
   return (dispatch) => {
-    fetch(`${URL}${post.id}`, {
+    fetch(`${URL}posts/${post.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),
@@ -37,7 +37,7 @@ export function editPost(post) {
 }
 export function deletePost(id) {
   return (dispatch) => {
-    fetch(`${URL}posts/${id}`, {
+    fetch(`https://sleepy-cliffs-09142.herokuapp.com/posts/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(id),

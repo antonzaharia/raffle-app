@@ -12,6 +12,7 @@ Ticket.delete_all
 Cart.delete_all
 CartItem.delete_all
 User.delete_all
+@date = Date.today.strftime("%Y-%m-%d")
 
 admin = User.create(name: "Admin", email: "admin@admin.com", password: "admin", admin: true)
 
@@ -27,7 +28,7 @@ p1 = Post.create({
     title: "Audi A6 Avant plug-in hybrid",
     description: "We are proud to present to you a stunning Audi A6 Avant plug-in hybrid. This car runs and drives perfectly, wheels and bodywork in great condition. This is a great car to take out for a fun drive or head somewhere with the family. Its quick & sounds fantastic.",
     price: "3.99",
-    date: "2021-10-25",
+    date: @date,
     max_tickets: 100,
     image: "https://mediacloud.carbuyer.co.uk/image/private/s--p7yl5YtF--/v1595106620/carbuyer/2020/04/a202534_large.jpg"
     })
@@ -35,7 +36,7 @@ p2 = Post.create({
     title: "Ford Focus ST3",
     description: "We are proud to present to you a stunning Ford Focus ST3. This car runs and drives perfectly, wheels and bodywork in great condition. This is a great car to take out for a fun drive or head somewhere with the family. Its quick & sounds fantastic.",
     price: "1.99",
-    date: "2021-10-25",
+    date: @date,
     max_tickets: 100,
     image: "https://www.clickcompetitions.co.uk/wp-content/uploads/2020/10/DSC01423.jpg"
         })
@@ -43,7 +44,7 @@ p3 = Post.create({
     title: "Mercedes EQC",
     description: "We are proud to present to you a stunning Mercedes EQC. This car runs and drives perfectly, wheels and bodywork in great condition. This is a great car to take out for a fun drive or head somewhere with the family. Its quick & sounds fantastic.",
     price: "2.99",
-    date: "2021-10-25",
+    date: @date,
     max_tickets: 100,
     image: "https://car-images.bauersecure.com/pagefiles/87936/mercedes_eqc_001.jpg"
     })
