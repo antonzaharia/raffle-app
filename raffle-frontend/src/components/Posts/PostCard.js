@@ -11,14 +11,14 @@ export default function Post({ post }) {
   return (
     <div>
       <Card style={{ width: "20rem" }} className="post-card">
-        <Card.Img
-          className="post-img"
-          variant="top"
-          src={post.image}
-        />
+        <Card.Img className="post-img" variant="top" src={post.image} />
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
-          <Link key={post.id} to={makeLink(post.id)}><Button variant="success" block>ENTER NOW</Button></Link>
+          <Link className="post-card-link" key={post.id} to={makeLink(post.id)}>
+            <Button variant="success" block>
+              ENTER NOW
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>
