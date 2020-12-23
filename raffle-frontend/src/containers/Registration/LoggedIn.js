@@ -24,7 +24,7 @@ function LoggedIn({ logout }) {
       </Link>
       <Link to="/account">
         <Button variant="link">
-          {localStorage.notification ? <span>"News!"</span> : ""}
+          {localStorage.notification ? <span>News!</span> : ""}
           {localStorage.name}
         </Button>
       </Link>

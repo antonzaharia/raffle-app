@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notifications
   resources :carts, only: [:show, :create]
   resources :cart_items, only: [:destroy]
   resources :tickets, only: [:create, :update]
