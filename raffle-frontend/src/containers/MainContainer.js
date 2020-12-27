@@ -9,11 +9,12 @@ import DateCheck from "../components/Raffle/DateCheck";
 
 // Bootstrap
 import Card from "react-bootstrap/esm/Card";
+import { loadNotifications } from "../actions/NotificationsActions";
 
 class MainContainer extends Component {
   componentDidMount() {
     this.props.loadPosts();
-    this.props.loadNotifications();
+    this.props.loadNotifications(localStorage.id);
   }
   checkUser = () => {
     if (localStorage.admin === "true") {
@@ -49,7 +50,7 @@ class MainContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   loadPosts: () => dispatch(loadPosts()),
-  loadNotifications: () => dispatch({ type: "LOAD_NOTIFICATIONS" }),
+  loadNotifications: (userId) => dispatch(loadNotifications(userId)),
 });
 const mapStateToProps = (state) => ({
   user: state.users.user,

@@ -36,10 +36,10 @@ export function deleteCartItem(id) {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
     fetch(`https://sleepy-cliffs-09142.herokuapp.com/cart_items/${id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(id),
-      })
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(id),
+    })
       .then((resp) => resp.json())
       .then((result) =>
         dispatch({
@@ -65,7 +65,7 @@ export function checkout(data) {
           localStorage.setItem("cart_id", result.cart.id);
           dispatch({
             type: "CHECKOUT",
-            payload: result
+            payload: result,
           });
         }
       });
