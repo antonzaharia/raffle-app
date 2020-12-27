@@ -32,9 +32,11 @@ class TicketsController < ApplicationController
         winner_number = rand(1..post.tickets.size)
         post.tickets.each do |ticket|
             if ticket.number == winner_number
+                Notification.create(seen: false, user: ticket.user, content: "Congradulations! You're a winner!")
                 ticket.update(winner: true)
             else
                 ticket.update(winner: false)
+                Notification.create(seen: false, user: ticket.user, content: "Unfortunately, this time another ticket is a winner.")
             end
         end
         post.update(winner: winner_number)
